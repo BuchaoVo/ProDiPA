@@ -1,0 +1,10 @@
+method: prodipa_bssr
+objective: exact_scalar_advantage_with_lm_eos_anchors
+refresh_policy: budgeted_drift_and_coverage
+expensive_teacher_prefiltering: forbidden
+selection_inputs:
+  - policy_drift
+  - cache_coverage
+  - reference_likelihood
+  - validity
+

@@ -1,0 +1,39 @@
+{
+  "baseline": "progen2_base",
+  "generation_config_id": "progen2_base_official_v1",
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit_env": "PROGEN2_REPO_COMMIT",
+      "one_of": ["third_party/progen", "../../models/external_repos/progen"]
+    },
+    "checkpoint": {
+      "kind": "directory",
+      "required": true,
+      "one_of": ["$PROGEN2_BASE_CHECKPOINT", "third_party/progen/progen2/checkpoints/progen2-base"]
+    },
+    "checkpoint_weights": {
+      "kind": "file",
+      "required": true,
+      "one_of": ["$PROGEN2_BASE_CHECKPOINT/pytorch_model.bin", "third_party/progen/progen2/checkpoints/progen2-base/pytorch_model.bin"]
+    },
+    "tokenizer": {
+      "kind": "file",
+      "required": true,
+      "one_of": ["$PROGEN2_TOKENIZER", "third_party/progen/progen2/tokenizer.json"]
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "context": "1",
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": null,
+    "repetition_penalty": null,
+    "max_total_tokens": 512,
+    "batch_size": 8,
+    "output": "outputs/unconditional/external_baselines/progen2_base/generations.jsonl"
+  }
+}

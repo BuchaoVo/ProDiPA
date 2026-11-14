@@ -1,0 +1,21 @@
+{
+  "baseline": "lineageflow_tpr",
+  "display_name": "LineageFlow",
+  "paradigm": "conditional",
+  "condition": {
+    "family_id": "G3DSA:1.25.40.10",
+    "family_name": "Tetratricopeptide-like helical domain superfamily"
+  },
+  "method": {
+    "mechanism": "family-aware Dirichlet flow matching from a released ASR lineage prior",
+    "cath_to_pfam_mapping_required": true
+  },
+  "resources": {
+    "official_repo": {"kind": "git_repo", "required": true, "commit_env": "LINEAGEFLOW_REPO_COMMIT", "path": "$LINEAGEFLOW_REPO"},
+    "checkpoint": {"kind": "file", "required": true, "path": "$LINEAGEFLOW_CHECKPOINT"},
+    "released_assets": {"kind": "directory", "required": true, "path": "$LINEAGEFLOW_ASSETS"},
+    "verified_target_mapping": {"kind": "file", "required": true, "path": "$LINEAGEFLOW_TPR_MAPPING"},
+    "generation_entrypoint": {"kind": "file", "required": true, "path": "$LINEAGEFLOW_TPR_ENTRYPOINT"}
+  },
+  "protocol": {"requests": 512, "seed": 42, "output": "outputs/evaluation/conditional/baseline_generation/lineageflow_tpr.jsonl"}
+}

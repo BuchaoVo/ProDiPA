@@ -1,0 +1,10 @@
+schema_version: 1
+cache_variant: exact_scalar
+teacher_fusion: full_vocabulary_poe
+teacher_weights: [0.33333334, 0.33333334, 0.33333334]
+teacher_temperatures: [1.0, 1.0, 1.0]
+normalization_dtype: float32
+cached_target: realized_token_logq
+preserve_special_tokens: true
+immutable_rounds: true
+

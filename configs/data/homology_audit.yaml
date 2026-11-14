@@ -1,0 +1,37 @@
+mmseqs:
+  release: 18-8cc5c
+  commit: 8cc5ce367b5638c4306c2d7cfc652dd099a4643f
+  sensitivity: 7.5
+  evalue: 0.001
+  mask_low_complexity: true
+full_length:
+  min_identity: 0.30
+  min_query_coverage: 0.80
+  min_target_coverage: 0.80
+  action: exclude_uniref_candidate
+domain:
+  min_identity: 0.30
+  min_domain_coverage: 0.80
+  min_alignment_length: 30
+  action: review_required_not_automatic_exclusion
+  review_resolution:
+    exclude_if_evalue_at_most: 1.0e-5
+    retain_and_flag_if_evalue_above: 1.0e-5
+    rationale: conventional significance filter applied after identity, domain-coverage, and alignment-length gates
+main_audit:
+  uniref_scope: frozen Main candidate collection
+  cath_scope: frozen ESM-IF CATH 4.3 Test unique sequences and domains
+  result_scope: sequence_protocol_validation
+split:
+  seed: 42
+  heldout_family_id: null
+  family_level: null
+  sensitivity_initial_search: 7.5
+  sensitivity_independent_audit: 8.5
+  component_edges:
+    - exact_sequence
+    - accession
+    - uniprot_parent_isoform
+    - trusted_source_link
+    - all_threshold_search_hits
+  fail_closed: true

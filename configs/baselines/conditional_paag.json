@@ -1,0 +1,77 @@
+{
+  "baseline": "paag_tpr_annotation",
+  "display_name": "PAAG",
+  "generation_config_id": "paag_tpr_annotation_frozen_lengths_v1",
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "284a2999091556e70d2b4ca4d64c4960fe3e9b1b",
+      "path": "../../models/external_repos/PAAG"
+    },
+    "checkpoint": {
+      "kind": "file",
+      "required": true,
+      "expected_bytes": 11028482860,
+      "one_of": [
+        "../../models/external_weights/PAAG/paag_protbert_protannotation.ckpt",
+        "../../models/external_weights/PAAG/paag.ckpt",
+        "../../models/external_weights/PAAG/weights/paag.ckpt"
+      ]
+    },
+    "protbert_tokenizer": {
+      "kind": "file",
+      "required": true,
+      "one_of": [
+        "../../models/external_weights/PAAG/ProtBert_tokenizer.pt",
+        "../../models/external_weights/PAAG/weights/ProtBert_tokenizer.pt"
+      ]
+    },
+    "protbert_encoder": {
+      "kind": "file",
+      "required": true,
+      "one_of": [
+        "../../models/external_weights/PAAG/ProtBert.pt",
+        "../../models/external_weights/PAAG/weights/ProtBert.pt"
+      ]
+    },
+    "protbert_decoder": {
+      "kind": "file",
+      "required": true,
+      "one_of": [
+        "../../models/external_weights/PAAG/ProtDecoder.pt",
+        "../../models/external_weights/PAAG/weights/ProtDecoder.pt"
+      ]
+    },
+    "scibert_tokenizer": {
+      "kind": "file",
+      "required": true,
+      "one_of": [
+        "../../models/external_weights/PAAG/scibert_tokenizer.pt",
+        "../../models/external_weights/PAAG/weights/scibert_tokenizer.pt"
+      ]
+    },
+    "scibert_encoder": {
+      "kind": "file",
+      "required": true,
+      "one_of": [
+        "../../models/external_weights/PAAG/scibert.pt",
+        "../../models/external_weights/PAAG/weights/scibert.pt"
+      ]
+    },
+    "length_manifest": {
+      "kind": "file",
+      "required": true,
+      "path": "outputs/evaluation/conditional/protocol/tpr_base_length_manifest_seed42.jsonl"
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "batch_size": 4,
+    "prompt": "Design a protein containing tetratricopeptide repeat (TPR) domains forming a predominantly alpha-helical repeat scaffold.",
+    "top_p": 0.9,
+    "repetition_penalty": 1.0,
+    "output": "outputs/evaluation/conditional/baseline_generation/paag_tpr_annotation.jsonl"
+  }
+}

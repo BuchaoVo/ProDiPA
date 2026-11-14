@@ -1,0 +1,40 @@
+{
+  "baseline": "progen3_762m",
+  "display_name": "ProGen3-762M",
+  "generation_config_id": "progen3_762m_unconditional_v1",
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "5c8c88c10b369a8c3044e11d586266f68dfca0bf",
+      "path": "../../models/external_repos/progen3"
+    },
+    "checkpoint": {
+      "kind": "directory",
+      "required": true,
+      "path": "../../models/external_weights/ProGen3-762M"
+    },
+    "checkpoint_config": {
+      "kind": "file",
+      "required": true,
+      "path": "../../models/external_weights/ProGen3-762M/config.json"
+    },
+    "checkpoint_weights": {
+      "kind": "file",
+      "required": true,
+      "path": "../../models/external_weights/ProGen3-762M/model.safetensors",
+      "expected_sha256": "d61051007786d4c0596ad342aad4106f9b6412ed917ece918fc8c91338f3cdd2"
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "resume_chunk_size": 32,
+    "max_batch_tokens": 32768,
+    "min_new_tokens": 50,
+    "max_new_tokens": 512,
+    "temperature": 0.85,
+    "top_p": 0.95,
+    "output": "outputs/unconditional/external_baselines/progen3_762m/generations.jsonl"
+  }
+}

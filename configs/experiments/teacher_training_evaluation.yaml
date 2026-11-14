@@ -1,0 +1,56 @@
+schema_version: 1
+status: FROZEN_PIPELINE
+seed: 42
+
+backbones:
+  unconditional: __PRODIPA_MODELS__/ProtGPT2
+  conditional: __PRODIPA_MODELS__/ProLLaMA
+
+data:
+  provenance:
+    unconditional: data/provenance/split_membership.tsv.gz
+    conditional_manifest: data/provenance/conditional_teacher_manifest.tsv
+    conditional_audit: data/provenance/conditional_teacher_audit.json
+  unconditional:
+    fold: [data/unconditional/fold/train_plddt_300.csv, data/unconditional/fold/test_plddt_100.csv]
+    sol: [data/unconditional/sol/train_sol_300.csv, data/unconditional/sol/test_sol_100.csv]
+    thermo: [data/unconditional/thermo/train_thermo_300.csv, data/unconditional/thermo/test_thermo_100.csv]
+  conditional:
+    fold: [data/conditional/fold/train_plddt_300.json, data/conditional/fold/test_plddt_100.json]
+    sol: [data/conditional/sol/train_sol_300.json, data/conditional/sol/test_sol_100.json]
+    thermo: [data/conditional/thermo/train_thermo_300.json, data/conditional/thermo/test_thermo_100.json]
+
+teacher_outputs:
+  unconditional: outputs/unconditional/protgpt2
+  conditional: outputs/conditional/prollama
+
+generation_evaluation:
+  requests_per_model: 512
+  teacher_generation_root: outputs/evaluation/teacher_generation_evaluation
+  unconditional_results: outputs/evaluation/unconditional/methods/protgpt2_base_and_prefix_teachers
+  conditional_results: outputs/evaluation/conditional
+  shared_references: outputs/evaluation/references
+  protocol:
+    temperature: 0.7
+    top_p: 0.9
+    top_k: 200
+    repetition_penalty: 1.2
+    max_new_tokens: 512
+    valid_length_aa: [50, 512]
+  thresholds: {plddt: 85.0, sol: 0.70, thermo: 0.60}
+  unconditional_main: [PPL, Novelty-U, Novelty-T, pLDDT, "%>70", pAE, "%<10", Sol, Thermo, HV]
+  conditional_main: [PPL, ProTrek, pLDDT, pAE, Sol, Thermo, HV]
+
+entrypoints:
+  train_unconditional: src/prodipa/unconditional/run_prefix_gpu_queue.sh
+  train_conditional: experiments/prodipa/conditional_teacher_training/run_all.sh
+  generate_and_score: experiments/prodipa/conditional_evaluation/run_four_gpu_queue.sh
+  score_unconditional: experiments/prodipa/conditional_evaluation/run_separate_paradigm_scoring_queue.sh unconditional
+  score_conditional: experiments/prodipa/conditional_evaluation/run_separate_paradigm_scoring_queue.sh conditional
+
+invariants:
+  - never_continue_from_an_old_teacher_adapter
+  - never_overwrite_training_data
+  - fail_if_data_or_adapter_preflight_fails
+  - keep_base_and_teacher_results_separate_by_paradigm
+  - recompute_novelty_and_hv_when_the_training_reference_or_cohort_changes

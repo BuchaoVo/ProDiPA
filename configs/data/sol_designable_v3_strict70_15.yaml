@@ -1,0 +1,63 @@
+protocol_id: Sol-Designable-V3-Strict70-15
+status: training_ready_not_started
+source_release: releases/zenodo/ProDiPA_frozen_dataset_2026-11-02.tar.gz
+source_partitions:
+  train: train_25000_complete.tsv.gz
+  validation: validation_1000_complete.tsv.gz
+thresholds:
+  sol_min: 0.70
+  fold_plddt_100_min: 70.0
+  fold_mean_pae_max: 15.0
+length_bins_aa:
+  - [50, 149]
+  - [150, 249]
+  - [250, 349]
+  - [350, 512]
+target_quotas:
+  train: [45, 132, 65, 58]
+  validation: [15, 44, 22, 19]
+selection_order:
+  - strict_property_and_structure_gates
+  - canonical_sequence_and_complexity_gate
+  - one_representative_per_homology_group
+  - target_length_bin_quota
+  - sol_score_range_and_within_bin_length_coverage
+constraints:
+  lower_structure_thresholds_if_short: false
+  crop_sequences: false
+  duplicate_sequences: false
+  cross_source_partition_borrowing: true
+  publish_over_canonical_v2: false
+split_protocol:
+  version: P3_joint_complete_homology_groups
+  candidate_manifest: data/rebuild/sol_designable_v3_strict70_15/strict_candidate_manifest_expanded_p2.tsv
+  selected_manifest: data/rebuild/sol_designable_v3_strict70_15/selected_sequence_manifest.tsv
+  train_csv: data/rebuild/sol_designable_v3_strict70_15/train_sol_300.csv
+  validation_csv: data/rebuild/sol_designable_v3_strict70_15/test_sol_100.csv
+  joint_reference_attributes: [fold, thermo]
+  mmseqs_min_sequence_identity: 0.30
+  mmseqs_bidirectional_coverage: 0.80
+  explicit_fragment_annotations_excluded: true
+  complete_group_assigned_to_one_split_only: true
+  opposite_split_cross_attribute_homology_allowed: false
+  same_split_cross_attribute_homology_allowed: true
+  direct_pairwise_all_attribute_cross_split_audit: true
+  source_partition_reassignment_after_grouping: true
+  canonical_sol_v2_modified: false
+  teacher_training_started: false
+generated_teacher_acceptance_targets:
+  sol_mean_min: 0.70
+  structure_pass_plddt70_pae15_rate_min: 0.48
+  structure_pass_reference_range: [0.48, 0.63]
+  low_complexity_risk: significantly_below_sol_v2_0.629
+  noncanonical_requests: 0
+  comparison_protocol: canonical_legacy_bpe_mask_and_512_aa_safety_cap
+complexity_gate:
+  min_global_entropy_bits: 2.5
+  max_single_residue_fraction: 0.35
+  max_homopolymer_run: 12
+  max_low_complexity_window_fraction: 0.25
+  min_unique_residues: 8
+  window_aa: 32
+  window_entropy_bits: 2.5
+  window_max_single_residue_fraction: 0.5

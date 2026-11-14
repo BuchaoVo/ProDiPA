@@ -1,0 +1,45 @@
+{
+  "baseline": "dplm_650m_tpr_infilling",
+  "display_name": "DPLM-650M TPR motif infilling",
+  "paradigm": "conditional",
+  "generation_config_id": "dplm_650m_tpr_motif_infilling",
+  "condition": {
+    "family_id": "G3DSA:1.25.40.10",
+    "family_name": "Tetratricopeptide-like helical domain superfamily",
+    "mechanism": "one frozen 34-residue motif from a Conditional Train300 TPR sequence; all remaining positions are diffused"
+  },
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "8a2e15e53416b4536f03f79ad1f6f6a9cbd5e19d",
+      "path": "third_party/dplm"
+    },
+    "checkpoint": {
+      "kind": "directory",
+      "required": true,
+      "path": "../../models/dplm_650m"
+    },
+    "checkpoint_weights": {
+      "kind": "file",
+      "required": true,
+      "path": "../../models/dplm_650m/pytorch_model.bin"
+    },
+    "condition_manifest": {
+      "kind": "file",
+      "required": true,
+      "path": "data/evaluation/conditional/dplm_650m_tpr_infilling_manifest.jsonl"
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "batch_size": 8,
+    "motif_length": 34,
+    "minimum_flank_length": 8,
+    "max_iter": 500,
+    "sampling_strategy": "gumbel_argmax",
+    "temperature_cli_effective": false,
+    "output": "outputs/evaluation/conditional/baseline_generation/dplm_650m_tpr_infilling.jsonl"
+  }
+}

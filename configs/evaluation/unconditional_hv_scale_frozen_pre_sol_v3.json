@@ -1,0 +1,105 @@
+{
+  "definition_source": "frozen pooled min-max HV protocol",
+  "objectives": [
+    {
+      "field": "ppl",
+      "transform": "-log(1 + PPL)",
+      "direction": "maximize"
+    },
+    {
+      "field": "novelty_u_percent",
+      "transform": "identity",
+      "direction": "maximize"
+    },
+    {
+      "field": "plddt",
+      "transform": "identity",
+      "direction": "maximize"
+    },
+    {
+      "field": "sol",
+      "transform": "identity",
+      "direction": "maximize"
+    },
+    {
+      "field": "thermo",
+      "transform": "identity",
+      "direction": "maximize"
+    }
+  ],
+  "excluded_from_hv": [
+    "Novelty-T",
+    "pAE",
+    "%>70",
+    "%<10"
+  ],
+  "normalization_scope": "all complete generated sequences pooled across the configured Unconditional cohort",
+  "reference_point": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "oriented_min": [
+    -8.532606628333042,
+    0.0,
+    21.3680327,
+    0.007,
+    4.38665702e-05
+  ],
+  "oriented_max": [
+    -0.8155165212449864,
+    100.0,
+    92.4944043,
+    1.0,
+    0.999995112
+  ],
+  "complete_points": 4415,
+  "complete_points_by_model": {
+    "base": 357,
+    "fold_teacher": 431,
+    "sol_teacher": 375,
+    "thermo_teacher": 447,
+    "progen2_base": 512,
+    "dplm_650m": 512,
+    "protgpt2_multiteacher_student": 414,
+    "progen3_762m": 343,
+    "dplm2_650m": 512,
+    "evodiff_oa_dm_640m": 512
+  },
+  "nondominated_points_by_model": {
+    "base": 97,
+    "fold_teacher": 146,
+    "sol_teacher": 57,
+    "thermo_teacher": 102,
+    "progen2_base": 83,
+    "dplm_650m": 175,
+    "protgpt2_multiteacher_student": 81,
+    "progen3_762m": 99,
+    "dplm2_650m": 128,
+    "evodiff_oa_dm_640m": 30
+  },
+  "hypervolume_by_model": {
+    "base": 0.5657972985339722,
+    "fold_teacher": 0.5242385908105391,
+    "sol_teacher": 0.3834516566243383,
+    "thermo_teacher": 0.5866796722576615,
+    "progen2_base": 0.5778174044833538,
+    "dplm_650m": 0.6463446300867552,
+    "protgpt2_multiteacher_student": 0.5190220605976145,
+    "progen3_762m": 0.42457593812304834,
+    "dplm2_650m": 0.4141163485746178,
+    "evodiff_oa_dm_640m": 0.17741216088815667
+  },
+  "novelty_u_file": "__PRODIPA_ROOT__/outputs/evaluation/unconditional/scores/novelty_u.tsv",
+  "sequence_score_files": [
+    "__PRODIPA_ROOT__/outputs/evaluation/unconditional/methods/protgpt2_base_and_prefix_teachers/results/sequence_scores.tsv",
+    "__PRODIPA_ROOT__/outputs/evaluation/unconditional/methods/progen2_base/results/sequence_scores.tsv",
+    "__PRODIPA_ROOT__/outputs/evaluation/unconditional/methods/dplm_650m/results/sequence_scores.tsv",
+    "__PRODIPA_ROOT__/outputs/evaluation/unconditional/methods/protgpt2_multiteacher_student/results/sequence_scores.tsv",
+    "__PRODIPA_ROOT__/outputs/evaluation/unconditional/methods/progen3_762m/results/sequence_scores.tsv",
+    "__PRODIPA_ROOT__/outputs/evaluation/unconditional/methods/dplm2_650m/results/sequence_scores.tsv",
+    "__PRODIPA_ROOT__/outputs/evaluation/unconditional/methods/evodiff_oa_dm_640m/results/sequence_scores.tsv"
+  ]
+}

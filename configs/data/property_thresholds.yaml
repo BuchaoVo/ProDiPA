@@ -1,0 +1,33 @@
+scale:
+  fold_plddt_100: [0.0, 100.0]
+  solubility_01: [0.0, 1.0]
+  thermostability_01: [0.0, 1.0]
+legacy_thresholds:
+  fold_plddt_100: 80.0
+  solubility_01: 0.60
+  thermostability_01: 0.35714285714285715
+training_thresholds:
+  fold_mean_plddt_100: 85.0
+  solubility_scaled_01: 0.70
+  thermophilicity_score_01: 0.60
+strict_jsr_thresholds:
+  fold_mean_plddt_100: 85.0
+  solubility_scaled_01: 0.70
+  thermophilicity_score_01: 0.60
+thermo_diagnostic_thresholds: [0.35714285714285715, 0.40, 0.50]
+annotation_pilot:
+  train_sequences: 1000
+  seed: 42
+  same_sequences_for_all_predictors: true
+  completed: true
+  valid_predictions: {fold: 1000, sol: 1000, thermo: 1000}
+  qualified: {fold: 142, sol: 399, thermo: 227}
+evaluation_thresholds_selected: true
+evaluation_thresholds:
+  fold_plddt_100: 73.861558725
+  solubility_scaled_01: 0.67025
+  thermophilicity_score_01: 0.30263095325
+evaluation_threshold_quantile: 0.75
+evaluation_threshold_split: shared_validation_1000
+selection_source: train_and_val_only
+test_tuning_forbidden: true

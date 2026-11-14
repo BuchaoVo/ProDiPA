@@ -1,0 +1,66 @@
+{
+  "baseline": "protdat_tpr_text",
+  "display_name": "ProtDAT",
+  "generation_config_id": "protdat_tpr_text_frozen_lengths_v1",
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "df648e31f70af9e28e297ce98d25e0b3e815e05c",
+      "path": "../../models/external_repos/ProtDAT"
+    },
+    "checkpoint_weights": {
+      "kind": "file",
+      "required": true,
+      "path": "../../models/external_weights/ProtDAT/state_dict.pth",
+      "expected_bytes": 1114754343
+    },
+    "text_model": {
+      "kind": "directory",
+      "required": true,
+      "path": "../../models/external_weights/ProtDAT/pubmedbert"
+    },
+    "text_model_config": {
+      "kind": "file",
+      "required": true,
+      "path": "../../models/external_weights/ProtDAT/pubmedbert/config.json"
+    },
+    "text_model_weights": {
+      "kind": "file",
+      "required": true,
+      "one_of": [
+        "../../models/external_weights/ProtDAT/pubmedbert/model.safetensors",
+        "../../models/external_weights/ProtDAT/pubmedbert/pytorch_model.bin"
+      ]
+    },
+    "sequence_tokenizer": {
+      "kind": "directory",
+      "required": true,
+      "path": "../../models/external_weights/ProtDAT/esm1b"
+    },
+    "sequence_tokenizer_vocab": {
+      "kind": "file",
+      "required": true,
+      "path": "../../models/external_weights/ProtDAT/esm1b/vocab.txt"
+    },
+    "length_manifest": {
+      "kind": "file",
+      "required": true,
+      "path": "outputs/evaluation/conditional/protocol/tpr_base_length_manifest_seed42.jsonl"
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "batch_size": 4,
+    "prompt": "Design a protein containing tetratricopeptide repeat (TPR) domains forming a predominantly alpha-helical repeat scaffold.",
+    "d_model": 768,
+    "cross_vocab_size": 50,
+    "layers": 12,
+    "num_heads": 12,
+    "top_p": 0.85,
+    "temperature": 1.0,
+    "repetition_penalty": 1.2,
+    "output": "outputs/evaluation/conditional/baseline_generation/protdat_tpr_text.jsonl"
+  }
+}

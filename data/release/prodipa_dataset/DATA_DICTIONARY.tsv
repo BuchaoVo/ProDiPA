@@ -1,0 +1,18 @@
+field	definition	unit_or_values
+sequence_id	Stable frozen ProDiPA identifier	identifier
+sequence	Canonical amino-acid sequence	20-letter amino-acid alphabet
+length_aa	Full sequence length	amino acids
+homology_group	Frozen Train homology group	identifier
+split	Frozen split	train/validation/test_h
+fold_score	ESMFold mean pLDDT	0-100 computational prediction
+fold_ptm_01	ESMFold predicted TM score	0-1 computational prediction
+fold_mean_pae	ESMFold mean predicted aligned error	model output
+sol_score	Protein-Sol scaled score	0-1 computational prediction
+thermo_score	TemBERTureCLS thermophilic class score	0-1 classifier score
+*_present	Whether the frozen score is present	boolean
+*_positive	Whether the teacher-selection threshold is met	boolean
+in_prior_15k	Membership in the nested historical 15K subset	boolean
+chain_ids/pdb_ids	CATH chains and structures represented by one deduplicated external-test sequence	comma-separated identifiers
+cath_topologies/cath_codes	CATH topology and classification metadata for the external test	comma-separated identifiers
+instruction/input/output	Conditional ProLLaMA supervision	prompt / condition / Seq=<sequence>
+property_score	Unconditional CSV property score in native units	see property column

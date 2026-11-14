@@ -1,0 +1,12 @@
+schema_version: 1
+units: [teacher_forward_tokens, teacher_gpu_seconds, total_gpu_hours]
+include:
+  - rollout
+  - each_teacher_forward
+  - poe_fusion
+  - cache_io
+  - student_training
+  - refresh
+  - diagnostics
+primary_efficiency_metric: novel_joint_successful_count_per_total_gpu_hour
+

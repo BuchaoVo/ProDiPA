@@ -1,0 +1,4 @@
+method: random_refresh
+objective: exact_scalar_advantage_with_lm_eos_anchors
+refresh_policy: budget_matched_random
+

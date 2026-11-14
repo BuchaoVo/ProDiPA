@@ -1,0 +1,15 @@
+log_teacher_entropy: false
+teacher_backbone_path: __PRODIPA_MODELS__/ProtGPT2
+teachers:
+  - name: fold
+    adapter_path: __PRODIPA_ROOT__/outputs/unconditional/protgpt2/fold/best_adapter
+    weight: 0.3333333333
+    temperature: 1.0
+  - name: sol
+    adapter_path: __PRODIPA_ROOT__/outputs/unconditional/protgpt2/sol/best_adapter
+    weight: 0.3333333333
+    temperature: 1.0
+  - name: thermo
+    adapter_path: __PRODIPA_ROOT__/outputs/unconditional/protgpt2/thermo/best_adapter
+    weight: 0.3333333334
+    temperature: 1.0

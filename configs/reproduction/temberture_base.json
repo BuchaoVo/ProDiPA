@@ -1,0 +1,7 @@
+{
+  "model": "Rostlab/prot_bert_bfd",
+  "revision": "6c5c8a55a52ff08a664dfd584aa1773f125a0487",
+  "source": "https://huggingface.co/Rostlab/prot_bert_bfd",
+  "historical_base_revision": "UNKNOWN",
+  "historical_equivalence": "SAMPLE_SCORES_AGREE; historical base revision remains UNKNOWN"
+}

@@ -1,0 +1,11 @@
+schema_version: 1
+cache_variant: topk_approx_kd
+teacher_fusion: truncated_support_poe
+top_k: 64
+normalization_dtype: float32
+required_diagnostics:
+  - retained_probability_mass
+  - scalar_logq_error
+  - eos_retention_rate
+claim: explicit_approximation_baseline
+

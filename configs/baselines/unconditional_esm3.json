@@ -1,0 +1,29 @@
+{
+  "baseline": "esm3_open_1.4b",
+  "generation_config_id": "esm3_open_iterative_masked_infilling",
+  "requests": 512,
+  "seed": 42,
+  "mask_ratio": 0.1,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "reference_manifest": "data/evaluation/unconditional/masked_infilling_reference_sequences.tsv",
+  "resources": {
+    "official_steering_repo": {
+      "kind": "git_repo",
+      "path": "third_party/Steering-PLMs",
+      "commit": "f7da9960be1222957a18eeb1174126f3d6ed4940"
+    },
+    "esm3_checkpoint_cache": {
+      "kind": "directory",
+      "path": "$ESM3_MODEL_DIR"
+    },
+    "reference_manifest": {
+      "kind": "file",
+      "path": "data/evaluation/unconditional/masked_infilling_reference_sequences.tsv"
+    },
+    "python": {
+      "kind": "executable",
+      "path": "$ESM3_PYTHON"
+    }
+  }
+}

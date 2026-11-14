@@ -1,0 +1,13 @@
+{
+  "status": "PASS_PUBLISHED_SOL_V3",
+  "rebuilt_at": "2026-11-12T10:39:55.273600+00:00",
+  "sol_revision": "Sol-Designable-V3-Strict70-15",
+  "sol_train_sha256": "32eb2851d84019b536a20a7aaca0171b54173439950057dba8120a51f48aabba",
+  "sol_validation_sha256": "41f344ec5bc5c5066d2b3bd6827bdb98a7c2342b9abe7e6010094e19aaa0b761",
+  "manifest_sha256": "ce161382229446821593e37cc6c10ef2a44078a6812c1471d6fae6509b807f26",
+  "split_homology_overlap": 0,
+  "pairwise_all_attribute_cross_split_homology_hits": 0,
+  "train_unique_sequences": 853,
+  "validation_unique_sequences": 288,
+  "intermediate_sol_rebuild_artifacts_removed": true
+}

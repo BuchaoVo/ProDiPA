@@ -1,0 +1,875 @@
+{
+  "status": "PASS",
+  "thresholds": {
+    "plddt": 85.0,
+    "sol": 0.7,
+    "thermo": 0.6
+  },
+  "selection_seed": 42,
+  "family": "G3DSA:1.25.40.10",
+  "prompt": "Superfamily=<Tetratricopeptide-like helical domain superfamily>",
+  "target_sizes": {
+    "train": 300,
+    "test": 100
+  },
+  "old_fixed_quotas": {
+    "train": {
+      "50-149": 15,
+      "150-249": 90,
+      "250-349": 135,
+      "350-512": 60
+    },
+    "test": {
+      "50-149": 5,
+      "150-249": 30,
+      "250-349": 45,
+      "350-512": 20
+    }
+  },
+  "base_length_reference": {
+    "path": "/mnt/data/users/zbc/opd/ProDiPA/outputs/evaluation/generation/conditional/base.tsv",
+    "sha256": "518f7c261a2ffec72836c5b2c3f5ffa6a8e4acc25bf7ccd68195a1629e622318",
+    "n": 512,
+    "counts": [
+      7,
+      406,
+      99,
+      0
+    ],
+    "proportions": [
+      0.013671875,
+      0.79296875,
+      0.193359375,
+      0.0
+    ]
+  },
+  "candidate_pool": {
+    "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/tpr_candidates_clustered.tsv",
+    "sha256": "b312b4e1e8d8a371807cda86db5198bb3c8942abcb3b2e8054de9d0f465c8ee4",
+    "n": 12803,
+    "source_database_counts": {
+      "reviewed": 895,
+      "unknown": 115,
+      "unreviewed": 11793
+    },
+    "split_counts": {
+      "excluded": 226,
+      "test": 2788,
+      "train": 9675,
+      "validation": 114
+    },
+    "score_files": [
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_00.tsv",
+        "sha256": "32375064a902feced9edb92c33cbfae67ff759e334efdeeda847d61bf9718ecb"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_01.tsv",
+        "sha256": "4d005da2180d1a00e42e4f85418237eab3d582c78696b30883899c8c19291170"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_02.tsv",
+        "sha256": "104682d0fdfe3f26340a5037d219fabe7b1378992c2c1ab4ee4e65313a501418"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_03.tsv",
+        "sha256": "46efc8e47f33116173593abdfbe42485925b45a66be64574856fcbe3fa38b732"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_04.tsv",
+        "sha256": "f805e30620eef26e3ad63226310923215b0ca4a3736ad0953c64bd6d970cab72"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_05.tsv",
+        "sha256": "eddab6ae42ef6b485c83865ab81cf457d0c0811f7c2ada84e7c607bdfd6e8072"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_06.tsv",
+        "sha256": "ea8982379d9dbc2e17bb97095176706ee969227dabed10b9b9225453cdb27497"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_07.tsv",
+        "sha256": "0fcc050b082c6e61ebeec183373ec161fed24409ea5a70f7c583cb0a9b501c33"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_08.tsv",
+        "sha256": "b0590ec97e71a014b6084eb75b88ed1b63892e990dd2b335668d54d120aa6d04"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_09.tsv",
+        "sha256": "10c921d13ea9fee0166fcf986020466e6dcac05e24fbe2f5e7d29e8ca2117001"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_10.tsv",
+        "sha256": "a579807e7c49541dfe0012374037ba18090911ebcfb2eaad255abfcdff759cec"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_11.tsv",
+        "sha256": "91de9e92d8940cf290b88457c7e2e3e8971d425214c6394291ab95682102a1c7"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_12.tsv",
+        "sha256": "325793e61bdee4f005267bf5e0ba96c0108673df78d951e899c653cc0381759c"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_13.tsv",
+        "sha256": "a27d57ff5618683b2ec6d65b192749dd25953d6010607283fb1fb10be41a5a57"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_14.tsv",
+        "sha256": "2e8c3dc76bb319fb8510d303833c228b9e0f0c5422d2e8731ef666896698ad21"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_15.tsv",
+        "sha256": "7fa695155e1a6cf3121fed46df554865ba7b1be045ad2587fd248f0531cb5178"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_16.tsv",
+        "sha256": "fdb8fa000030e63faa9e06006e8d8db108b3905edc27778623318d1a01f84740"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_17.tsv",
+        "sha256": "09dec44f2829cfa12f290031435a73fa297e05378265b119598f3779c985f578"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_18.tsv",
+        "sha256": "143db58b5e5fb1466d334a1042b354952b2fef33a7c0f986e3e032a6b9a28247"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_19.tsv",
+        "sha256": "f47cbb2282a37f2bf4727b370abad6cb8f0cda3959203251413588db0ea44f79"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_20.tsv",
+        "sha256": "74fbeec41539a6f7dfa8124c3708e6a171d253b9b401d1d79d213af445ce181a"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_21.tsv",
+        "sha256": "4450812017823a4827412626e15db8af2cb7370ecd5508ef315c2936567da1cb"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_22.tsv",
+        "sha256": "031dd396d3b1526163a0d0289285f6df34d9f139b447b432af389a52b9372d2c"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_23.tsv",
+        "sha256": "bca8ad7b9ba7a0ca2fc432e5ea9f81127c0b704cfcfc557ab4285f61b645a904"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_24.tsv",
+        "sha256": "065f887bcda8da653850e5714db30dbfec7f6c9d7edd89da5c158bd0fd0e2157"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_25.tsv",
+        "sha256": "384b89a640f2ae6b436d00406fda02c4b853ab94db39cb6a7ff0bf49d2954bd7"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_26.tsv",
+        "sha256": "eb63562a27b6939fff7b0661ac9ed39fdf8659468f1fa983037f805d8292c4bd"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_27.tsv",
+        "sha256": "96f8bc9038c3234ca1a58a7eb70521b74076aeb4c3da90b1f3ad3097d823fe9a"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_28.tsv",
+        "sha256": "70f31604b9d39e874ac3d6b5e5ca71e50f9f7e4d553c11476bc2a26b64eecc97"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_29.tsv",
+        "sha256": "10ae1c37ed72d30c77ae465b4b0a90058b98d24b60dba9272ef886e4159a6907"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_30.tsv",
+        "sha256": "71b022b192c3c4eb824ff51ad4e7afa42527d008d0ecae38960b388457d8346b"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_esmfold_shard_31.tsv",
+        "sha256": "95823e0705c9be61829736cdef23752dfc081f3ba5c3e448f24048a293985880"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_reviewed_sol.tsv",
+        "sha256": "43392ee1ca08c1a5d7473e30180292f9e57bdf6713f31eaca17c43ca322766ce"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_sol.tsv",
+        "sha256": "db7e25e3d8c5674755787674f8099b9f2710f7b537e9eeddfb74285f39fec726"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_reviewed_thermo.tsv",
+        "sha256": "63d364c4499c2e355f1723fefa34c81dfc1d2dafa788f25297c8c03e8b25f50f"
+      },
+      {
+        "path": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/scores/tpr_thermo.tsv",
+        "sha256": "398399a7cabf85dea146119746e7f5f9cec1cf67e8fe33d37151a859b27773e3"
+      }
+    ]
+  },
+  "capacity_matrix": [
+    {
+      "split": "train",
+      "attribute": "plddt",
+      "length_bin": "50-149",
+      "qualified_sequences": 0,
+      "independent_homology_groups": 0,
+      "threshold": 85.0
+    },
+    {
+      "split": "train",
+      "attribute": "plddt",
+      "length_bin": "150-249",
+      "qualified_sequences": 418,
+      "independent_homology_groups": 192,
+      "threshold": 85.0
+    },
+    {
+      "split": "train",
+      "attribute": "plddt",
+      "length_bin": "250-349",
+      "qualified_sequences": 906,
+      "independent_homology_groups": 309,
+      "threshold": 85.0
+    },
+    {
+      "split": "train",
+      "attribute": "plddt",
+      "length_bin": "350-512",
+      "qualified_sequences": 890,
+      "independent_homology_groups": 328,
+      "threshold": 85.0
+    },
+    {
+      "split": "train",
+      "attribute": "sol",
+      "length_bin": "50-149",
+      "qualified_sequences": 203,
+      "independent_homology_groups": 160,
+      "threshold": 0.7
+    },
+    {
+      "split": "train",
+      "attribute": "sol",
+      "length_bin": "150-249",
+      "qualified_sequences": 435,
+      "independent_homology_groups": 189,
+      "threshold": 0.7
+    },
+    {
+      "split": "train",
+      "attribute": "sol",
+      "length_bin": "250-349",
+      "qualified_sequences": 439,
+      "independent_homology_groups": 119,
+      "threshold": 0.7
+    },
+    {
+      "split": "train",
+      "attribute": "sol",
+      "length_bin": "350-512",
+      "qualified_sequences": 135,
+      "independent_homology_groups": 41,
+      "threshold": 0.7
+    },
+    {
+      "split": "train",
+      "attribute": "thermo",
+      "length_bin": "50-149",
+      "qualified_sequences": 76,
+      "independent_homology_groups": 67,
+      "threshold": 0.6
+    },
+    {
+      "split": "train",
+      "attribute": "thermo",
+      "length_bin": "150-249",
+      "qualified_sequences": 264,
+      "independent_homology_groups": 162,
+      "threshold": 0.6
+    },
+    {
+      "split": "train",
+      "attribute": "thermo",
+      "length_bin": "250-349",
+      "qualified_sequences": 285,
+      "independent_homology_groups": 219,
+      "threshold": 0.6
+    },
+    {
+      "split": "train",
+      "attribute": "thermo",
+      "length_bin": "350-512",
+      "qualified_sequences": 372,
+      "independent_homology_groups": 246,
+      "threshold": 0.6
+    },
+    {
+      "split": "test",
+      "attribute": "plddt",
+      "length_bin": "50-149",
+      "qualified_sequences": 0,
+      "independent_homology_groups": 0,
+      "threshold": 85.0
+    },
+    {
+      "split": "test",
+      "attribute": "plddt",
+      "length_bin": "150-249",
+      "qualified_sequences": 103,
+      "independent_homology_groups": 52,
+      "threshold": 85.0
+    },
+    {
+      "split": "test",
+      "attribute": "plddt",
+      "length_bin": "250-349",
+      "qualified_sequences": 197,
+      "independent_homology_groups": 94,
+      "threshold": 85.0
+    },
+    {
+      "split": "test",
+      "attribute": "plddt",
+      "length_bin": "350-512",
+      "qualified_sequences": 309,
+      "independent_homology_groups": 123,
+      "threshold": 85.0
+    },
+    {
+      "split": "test",
+      "attribute": "sol",
+      "length_bin": "50-149",
+      "qualified_sequences": 60,
+      "independent_homology_groups": 45,
+      "threshold": 0.7
+    },
+    {
+      "split": "test",
+      "attribute": "sol",
+      "length_bin": "150-249",
+      "qualified_sequences": 67,
+      "independent_homology_groups": 51,
+      "threshold": 0.7
+    },
+    {
+      "split": "test",
+      "attribute": "sol",
+      "length_bin": "250-349",
+      "qualified_sequences": 68,
+      "independent_homology_groups": 28,
+      "threshold": 0.7
+    },
+    {
+      "split": "test",
+      "attribute": "sol",
+      "length_bin": "350-512",
+      "qualified_sequences": 16,
+      "independent_homology_groups": 14,
+      "threshold": 0.7
+    },
+    {
+      "split": "test",
+      "attribute": "thermo",
+      "length_bin": "50-149",
+      "qualified_sequences": 26,
+      "independent_homology_groups": 18,
+      "threshold": 0.6
+    },
+    {
+      "split": "test",
+      "attribute": "thermo",
+      "length_bin": "150-249",
+      "qualified_sequences": 68,
+      "independent_homology_groups": 43,
+      "threshold": 0.6
+    },
+    {
+      "split": "test",
+      "attribute": "thermo",
+      "length_bin": "250-349",
+      "qualified_sequences": 133,
+      "independent_homology_groups": 71,
+      "threshold": 0.6
+    },
+    {
+      "split": "test",
+      "attribute": "thermo",
+      "length_bin": "350-512",
+      "qualified_sequences": 125,
+      "independent_homology_groups": 85,
+      "threshold": 0.6
+    }
+  ],
+  "previously_published_metrics": {
+    "train_plddt": {
+      "status": "previously_published",
+      "n": 300,
+      "length_counts": [
+        15,
+        90,
+        135,
+        60
+      ],
+      "length_proportions": [
+        0.05,
+        0.3,
+        0.45,
+        0.2
+      ],
+      "target_mean": 82.43748167666674,
+      "unique_homology_groups": 295,
+      "unmapped_homology_sequences": 1
+    },
+    "test_plddt": {
+      "status": "previously_published",
+      "n": 100,
+      "length_counts": [
+        5,
+        30,
+        45,
+        20
+      ],
+      "length_proportions": [
+        0.05,
+        0.3,
+        0.45,
+        0.2
+      ],
+      "target_mean": 82.61777822000003,
+      "unique_homology_groups": 100,
+      "unmapped_homology_sequences": 0
+    },
+    "train_sol": {
+      "status": "previously_published",
+      "n": 300,
+      "length_counts": [
+        15,
+        90,
+        135,
+        60
+      ],
+      "length_proportions": [
+        0.05,
+        0.3,
+        0.45,
+        0.2
+      ],
+      "target_mean": 0.6870899999999998,
+      "unique_homology_groups": 295,
+      "unmapped_homology_sequences": 1
+    },
+    "test_sol": {
+      "status": "previously_published",
+      "n": 100,
+      "length_counts": [
+        5,
+        30,
+        45,
+        20
+      ],
+      "length_proportions": [
+        0.05,
+        0.3,
+        0.45,
+        0.2
+      ],
+      "target_mean": 0.65885,
+      "unique_homology_groups": 99,
+      "unmapped_homology_sequences": 0
+    },
+    "train_thermo": {
+      "status": "previously_published",
+      "n": 300,
+      "length_counts": [
+        15,
+        90,
+        135,
+        60
+      ],
+      "length_proportions": [
+        0.05,
+        0.3,
+        0.45,
+        0.2
+      ],
+      "target_mean": 0.8043037058000002,
+      "unique_homology_groups": 300,
+      "unmapped_homology_sequences": 0
+    },
+    "test_thermo": {
+      "status": "previously_published",
+      "n": 100,
+      "length_counts": [
+        5,
+        30,
+        45,
+        20
+      ],
+      "length_proportions": [
+        0.05,
+        0.3,
+        0.45,
+        0.2
+      ],
+      "target_mean": 0.8125546442,
+      "unique_homology_groups": 100,
+      "unmapped_homology_sequences": 0
+    }
+  },
+  "quota_optimizer": {
+    "plddt": {
+      "objective_order": [
+        "minimum L1 distance to frozen ProLLaMA TPR Base length distribution",
+        "minimum one-dimensional earth-mover distance to the Base distribution",
+        "minimum Train/Test distribution discrepancy among exact ties",
+        "lexicographically smallest integer quota vector"
+      ],
+      "train_primary_tie_count": 1,
+      "test_primary_tie_count": 1,
+      "homology_matching": {
+        "train": {
+          "marginal_optimum": [
+            0,
+            192,
+            108,
+            0
+          ],
+          "selected_matchable_quota": [
+            0,
+            192,
+            108,
+            0
+          ],
+          "cross_bin_homology_adjusted": false,
+          "quota_vectors_tested": 1
+        },
+        "test": {
+          "marginal_optimum": [
+            0,
+            52,
+            48,
+            0
+          ],
+          "selected_matchable_quota": [
+            0,
+            52,
+            48,
+            0
+          ],
+          "cross_bin_homology_adjusted": false,
+          "quota_vectors_tested": 1
+        }
+      }
+    },
+    "sol": {
+      "objective_order": [
+        "minimum L1 distance to frozen ProLLaMA TPR Base length distribution",
+        "minimum one-dimensional earth-mover distance to the Base distribution",
+        "minimum Train/Test distribution discrepancy among exact ties",
+        "lexicographically smallest integer quota vector"
+      ],
+      "train_primary_tie_count": 48,
+      "test_primary_tie_count": 9,
+      "homology_matching": {
+        "train": {
+          "marginal_optimum": [
+            27,
+            189,
+            84,
+            0
+          ],
+          "selected_matchable_quota": [
+            27,
+            189,
+            84,
+            0
+          ],
+          "cross_bin_homology_adjusted": false,
+          "quota_vectors_tested": 1
+        },
+        "test": {
+          "marginal_optimum": [
+            21,
+            51,
+            28,
+            0
+          ],
+          "selected_matchable_quota": [
+            25,
+            51,
+            24,
+            0
+          ],
+          "cross_bin_homology_adjusted": true,
+          "quota_vectors_tested": 5
+        }
+      }
+    },
+    "thermo": {
+      "objective_order": [
+        "minimum L1 distance to frozen ProLLaMA TPR Base length distribution",
+        "minimum one-dimensional earth-mover distance to the Base distribution",
+        "minimum Train/Test distribution discrepancy among exact ties",
+        "lexicographically smallest integer quota vector"
+      ],
+      "train_primary_tie_count": 63,
+      "test_primary_tie_count": 17,
+      "homology_matching": {
+        "train": {
+          "marginal_optimum": [
+            5,
+            162,
+            133,
+            0
+          ],
+          "selected_matchable_quota": [
+            5,
+            162,
+            133,
+            0
+          ],
+          "cross_bin_homology_adjusted": false,
+          "quota_vectors_tested": 1
+        },
+        "test": {
+          "marginal_optimum": [
+            2,
+            43,
+            55,
+            0
+          ],
+          "selected_matchable_quota": [
+            2,
+            43,
+            55,
+            0
+          ],
+          "cross_bin_homology_adjusted": false,
+          "quota_vectors_tested": 1
+        }
+      }
+    }
+  },
+  "optimized_quotas": {
+    "train_plddt": {
+      "50-149": 0,
+      "150-249": 192,
+      "250-349": 108,
+      "350-512": 0
+    },
+    "test_plddt": {
+      "50-149": 0,
+      "150-249": 52,
+      "250-349": 48,
+      "350-512": 0
+    },
+    "train_sol": {
+      "50-149": 27,
+      "150-249": 189,
+      "250-349": 84,
+      "350-512": 0
+    },
+    "test_sol": {
+      "50-149": 25,
+      "150-249": 51,
+      "250-349": 24,
+      "350-512": 0
+    },
+    "train_thermo": {
+      "50-149": 5,
+      "150-249": 162,
+      "250-349": 133,
+      "350-512": 0
+    },
+    "test_thermo": {
+      "50-149": 2,
+      "150-249": 43,
+      "250-349": 55,
+      "350-512": 0
+    }
+  },
+  "train_test_support_notes": [
+    {
+      "attribute": "plddt",
+      "train_quotas": [
+        0,
+        192,
+        108,
+        0
+      ],
+      "test_quotas": [
+        0,
+        52,
+        48,
+        0
+      ],
+      "absolute_proportion_differences": [
+        0.0,
+        0.12,
+        0.12,
+        0.0
+      ],
+      "reason": "Differences remain where independent-group support constrains Base-matched quotas"
+    },
+    {
+      "attribute": "sol",
+      "train_quotas": [
+        27,
+        189,
+        84,
+        0
+      ],
+      "test_quotas": [
+        25,
+        51,
+        24,
+        0
+      ],
+      "absolute_proportion_differences": [
+        0.16,
+        0.12,
+        0.040000000000000036,
+        0.0
+      ],
+      "reason": "Differences remain where independent-group support constrains Base-matched quotas"
+    },
+    {
+      "attribute": "thermo",
+      "train_quotas": [
+        5,
+        162,
+        133,
+        0
+      ],
+      "test_quotas": [
+        2,
+        43,
+        55,
+        0
+      ],
+      "absolute_proportion_differences": [
+        0.003333333333333334,
+        0.11000000000000004,
+        0.10666666666666669,
+        0.0
+      ],
+      "reason": "Differences remain where independent-group support constrains Base-matched quotas"
+    }
+  ],
+  "optimized_dataset_metrics": {
+    "train_plddt": {
+      "status": "optimized_staged",
+      "n": 300,
+      "length_counts": [
+        0,
+        192,
+        108,
+        0
+      ],
+      "length_proportions": [
+        0.0,
+        0.64,
+        0.36,
+        0.0
+      ],
+      "target_mean": 87.73496872400001,
+      "unique_homology_groups": 300,
+      "unmapped_homology_sequences": 0
+    },
+    "train_sol": {
+      "status": "optimized_staged",
+      "n": 300,
+      "length_counts": [
+        27,
+        189,
+        84,
+        0
+      ],
+      "length_proportions": [
+        0.09,
+        0.63,
+        0.28,
+        0.0
+      ],
+      "target_mean": 0.7676600000000008,
+      "unique_homology_groups": 300,
+      "unmapped_homology_sequences": 0
+    },
+    "train_thermo": {
+      "status": "optimized_staged",
+      "n": 300,
+      "length_counts": [
+        5,
+        162,
+        133,
+        0
+      ],
+      "length_proportions": [
+        0.016666666666666666,
+        0.54,
+        0.44333333333333336,
+        0.0
+      ],
+      "target_mean": 0.8736631568366666,
+      "unique_homology_groups": 300,
+      "unmapped_homology_sequences": 0
+    },
+    "test_plddt": {
+      "status": "optimized_staged",
+      "n": 100,
+      "length_counts": [
+        0,
+        52,
+        48,
+        0
+      ],
+      "length_proportions": [
+        0.0,
+        0.52,
+        0.48,
+        0.0
+      ],
+      "target_mean": 87.46411591299997,
+      "unique_homology_groups": 100,
+      "unmapped_homology_sequences": 0
+    },
+    "test_sol": {
+      "status": "optimized_staged",
+      "n": 100,
+      "length_counts": [
+        25,
+        51,
+        24,
+        0
+      ],
+      "length_proportions": [
+        0.25,
+        0.51,
+        0.24,
+        0.0
+      ],
+      "target_mean": 0.7597500000000003,
+      "unique_homology_groups": 100,
+      "unmapped_homology_sequences": 0
+    },
+    "test_thermo": {
+      "status": "optimized_staged",
+      "n": 100,
+      "length_counts": [
+        2,
+        43,
+        55,
+        0
+      ],
+      "length_proportions": [
+        0.02,
+        0.43,
+        0.55,
+        0.0
+      ],
+      "target_mean": 0.8673529172300002,
+      "unique_homology_groups": 100,
+      "unmapped_homology_sequences": 0
+    }
+  },
+  "published": true
+}

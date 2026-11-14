@@ -1,0 +1,4 @@
+method: drift_only
+objective: exact_scalar_advantage_with_lm_eos_anchors
+refresh_policy: policy_drift
+

@@ -1,0 +1,7 @@
+schema_version: 1
+population_denominator: all_generated_candidates
+metrics: [plddt, pae, ptm, protein_sol, temberture, JSR, NJSR, HV]
+threshold_source: frozen_val
+shared_cohorts_required: true
+minimum_training_seeds: 3
+

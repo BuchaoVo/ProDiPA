@@ -1,0 +1,95 @@
+{
+  "data_dir": "/mnt/data/users/zbc/opd/ProDiPA/data/unconditional",
+  "provenance_path": "/mnt/data/users/zbc/opd/ProDiPA/data/unconditional/selected_sequence_manifest.tsv",
+  "provenance_kind": "selected_manifest",
+  "provenance_sha256": "ce161382229446821593e37cc6c10ef2a44078a6812c1471d6fae6509b807f26",
+  "source": "Train25K training / Validation1K used for checkpoint selection; not blind test",
+  "thresholds": {
+    "plddt": 0.85,
+    "sol": 0.7,
+    "thermo": 0.6
+  },
+  "split_homology_overlap": 0,
+  "counts": {
+    "train_plddt": {
+      "path": "fold/train_plddt_300.csv",
+      "n": 300,
+      "length_bins": [
+        0,
+        159,
+        72,
+        69
+      ],
+      "mean_property": 0.8698196017966664,
+      "sha256": "9b97d07e9e362431aff07ae0a4aa3c21977173678e29b4b64a6fde049abed1f0"
+    },
+    "train_sol": {
+      "path": "sol/train_sol_300.csv",
+      "n": 300,
+      "length_bins": [
+        45,
+        132,
+        65,
+        58
+      ],
+      "mean_property": 0.8398500000000001,
+      "sha256": "32eb2851d84019b536a20a7aaca0171b54173439950057dba8120a51f48aabba"
+    },
+    "train_thermo": {
+      "path": "thermo/train_thermo_300.csv",
+      "n": 300,
+      "length_bins": [
+        90,
+        105,
+        57,
+        48
+      ],
+      "mean_property": 0.8482372347733338,
+      "sha256": "86bdcb8a1961fa83548bec5c8a3fadea7811018df8d43893ee3101f5c4de5488"
+    },
+    "test_plddt": {
+      "path": "fold/test_plddt_100.csv",
+      "n": 100,
+      "length_bins": [
+        0,
+        53,
+        24,
+        23
+      ],
+      "mean_property": 0.86973122298,
+      "sha256": "6df9466e9ff23f79322bcb198c15e8453ce59d1918c8a45b3f4e22439072faf1"
+    },
+    "test_sol": {
+      "path": "sol/test_sol_100.csv",
+      "n": 100,
+      "length_bins": [
+        15,
+        44,
+        22,
+        19
+      ],
+      "mean_property": 0.7883700000000003,
+      "sha256": "41f344ec5bc5c5066d2b3bd6827bdb98a7c2342b9abe7e6010094e19aaa0b761"
+    },
+    "test_thermo": {
+      "path": "thermo/test_thermo_100.csv",
+      "n": 100,
+      "length_bins": [
+        30,
+        35,
+        19,
+        16
+      ],
+      "mean_property": 0.8573783987899999,
+      "sha256": "5f50761894683cafb77cd31ec206f2c1ab87547ab87290be5d6b8251886d2a6c"
+    }
+  },
+  "dataset_sha256": {
+    "fold/train_plddt_300.csv": "9b97d07e9e362431aff07ae0a4aa3c21977173678e29b4b64a6fde049abed1f0",
+    "sol/train_sol_300.csv": "32eb2851d84019b536a20a7aaca0171b54173439950057dba8120a51f48aabba",
+    "thermo/train_thermo_300.csv": "86bdcb8a1961fa83548bec5c8a3fadea7811018df8d43893ee3101f5c4de5488",
+    "fold/test_plddt_100.csv": "6df9466e9ff23f79322bcb198c15e8453ce59d1918c8a45b3f4e22439072faf1",
+    "sol/test_sol_100.csv": "41f344ec5bc5c5066d2b3bd6827bdb98a7c2342b9abe7e6010094e19aaa0b761",
+    "thermo/test_thermo_100.csv": "5f50761894683cafb77cd31ec206f2c1ab87547ab87290be5d6b8251886d2a6c"
+  }
+}

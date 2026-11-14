@@ -1,0 +1,57 @@
+{
+  "train_25000": 25000,
+  "prior_15000": 15000,
+  "unique_sequence_ids": 25000,
+  "three_scores_present": 25000,
+  "current_teachers": {
+    "data/conditional/fold/train_plddt_300.json": {
+      "records": 300,
+      "sha256": "6202a2231edf2354abc0b6a045651fe3402ce8dfbd21c17556a56cfa48759d4e"
+    },
+    "data/conditional/fold/test_plddt_100.json": {
+      "records": 100,
+      "sha256": "afd800bb3d3a7fc581aacd38466ab83866b4179059db45b73e53e0473b328830"
+    },
+    "data/conditional/sol/train_sol_300.json": {
+      "records": 300,
+      "sha256": "66cbaa8b8f2bf754142f79c50797a20b09b1b284ae2c49fd81be035a41e2c4e4"
+    },
+    "data/conditional/sol/test_sol_100.json": {
+      "records": 100,
+      "sha256": "a349376e0ad9f223af57aef2d45357623a5beef92bd9e5ef48f3b7c2f8ce32fe"
+    },
+    "data/conditional/thermo/train_thermo_300.json": {
+      "records": 300,
+      "sha256": "c6d27a23f2c58e4a3e9255c2ce2fc59bf05e9762653a76ccbc175426a0bf01b1"
+    },
+    "data/conditional/thermo/test_thermo_100.json": {
+      "records": 100,
+      "sha256": "fa05192da9fe025774389535e3dc92d8e24e89516320a07cf31a7a68847965ea"
+    },
+    "data/unconditional/fold/train_plddt_300.csv": {
+      "records": 300,
+      "sha256": "9b97d07e9e362431aff07ae0a4aa3c21977173678e29b4b64a6fde049abed1f0"
+    },
+    "data/unconditional/fold/test_plddt_100.csv": {
+      "records": 100,
+      "sha256": "6df9466e9ff23f79322bcb198c15e8453ce59d1918c8a45b3f4e22439072faf1"
+    },
+    "data/unconditional/sol/train_sol_300.csv": {
+      "records": 300,
+      "sha256": "32eb2851d84019b536a20a7aaca0171b54173439950057dba8120a51f48aabba"
+    },
+    "data/unconditional/sol/test_sol_100.csv": {
+      "records": 100,
+      "sha256": "41f344ec5bc5c5066d2b3bd6827bdb98a7c2342b9abe7e6010094e19aaa0b761"
+    },
+    "data/unconditional/thermo/train_thermo_300.csv": {
+      "records": 300,
+      "sha256": "86bdcb8a1961fa83548bec5c8a3fadea7811018df8d43893ee3101f5c4de5488"
+    },
+    "data/unconditional/thermo/test_thermo_100.csv": {
+      "records": 100,
+      "sha256": "5f50761894683cafb77cd31ec206f2c1ab87547ab87290be5d6b8251886d2a6c"
+    }
+  },
+  "historical_archive_sha256": "1700d8afaa9ae6ac0fa361e7bd4643f80ddfb43a4d0ca6d0c552369fada013c4"
+}

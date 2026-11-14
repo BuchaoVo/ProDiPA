@@ -1,0 +1,4 @@
+method: fixed_cache
+objective: exact_scalar_advantage_with_lm_eos_anchors
+refresh_policy: none
+

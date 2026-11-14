@@ -1,0 +1,66 @@
+{
+  "definition_source": "User-selected canonical Conditional objectives",
+  "objectives": [
+    {
+      "field": "ppl",
+      "transform": "-log(1 + PPL)",
+      "direction": "maximize"
+    },
+    {
+      "field": "protrek_percent",
+      "transform": "identity",
+      "direction": "maximize"
+    },
+    {
+      "field": "plddt",
+      "transform": "identity",
+      "direction": "maximize"
+    },
+    {
+      "field": "pae",
+      "transform": "negate",
+      "direction": "maximize"
+    },
+    {
+      "field": "sol",
+      "transform": "identity",
+      "direction": "maximize"
+    },
+    {
+      "field": "thermo",
+      "transform": "identity",
+      "direction": "maximize"
+    }
+  ],
+  "excluded_from_hv": [
+    "Novelty-U",
+    "Novelty-T",
+    "%>70",
+    "%<10"
+  ],
+  "oriented_min": [
+    -8.469381340712092,
+    -6.6875,
+    23.0836958,
+    -31.75,
+    0.22,
+    7.57037924e-06
+  ],
+  "oriented_max": [
+    -1.0439075601962562,
+    24.375,
+    92.8779483,
+    0.0,
+    1.0,
+    0.999990582
+  ],
+  "reference_point": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "algorithm": "moocore exact hypervolume, maximise=True"
+}

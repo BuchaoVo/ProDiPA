@@ -1,0 +1,12 @@
+{
+  "homology_groups": 24500,
+  "positive_counts": {
+    "fold": 3522,
+    "sol": 10039,
+    "thermo": 5108
+  },
+  "records": 25000,
+  "sha256": "ab8fddde036f79045588d9d4857d7a8711db9454387272ef70b6f68a1222b9d3",
+  "split": "train",
+  "unique_sequences": 25000
+}

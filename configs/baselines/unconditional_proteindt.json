@@ -1,0 +1,50 @@
+{
+  "baseline": "proteindt_t5",
+  "generation_config_id": "proteindt_t5_multi_property_prompt",
+  "requests": 512,
+  "seed": 42,
+  "prompt": "Design novel protein sequences with high foldability, high solubility, and high thermostability.",
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "path": "__PRODIPA_MODELS__/external_repos/ProteinDT",
+      "commit": "761f384bf8ec5be7cc3286b598fb23d87a0779ea"
+    },
+    "pretrained_folder": {
+      "kind": "directory",
+      "path": "$PROTEINDT_PRETRAINED_FOLDER"
+    },
+    "decoder_folder": {
+      "kind": "directory",
+      "path": "$PROTEINDT_DECODER_FOLDER"
+    },
+    "protein_model": {
+      "kind": "file",
+      "path": "$PROTEINDT_PRETRAINED_FOLDER/protein_model.pth"
+    },
+    "text_model": {
+      "kind": "file",
+      "path": "$PROTEINDT_PRETRAINED_FOLDER/text_model.pth"
+    },
+    "protein_projection": {
+      "kind": "file",
+      "path": "$PROTEINDT_PRETRAINED_FOLDER/protein2latent_model.pth"
+    },
+    "text_projection": {
+      "kind": "file",
+      "path": "$PROTEINDT_PRETRAINED_FOLDER/text2latent_model.pth"
+    },
+    "facilitator": {
+      "kind": "file",
+      "path": "$PROTEINDT_PRETRAINED_FOLDER/step_03_Gaussian_10/facilitator_distribution_model.pth"
+    },
+    "t5_decoder": {
+      "kind": "file",
+      "path": "$PROTEINDT_DECODER_FOLDER/decoder_distribution_model.pth"
+    },
+    "python": {
+      "kind": "executable",
+      "path": "$PROTEINDT_PYTHON"
+    }
+  }
+}

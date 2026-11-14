@@ -1,0 +1,4 @@
+method: periodic_refresh
+objective: exact_scalar_advantage_with_lm_eos_anchors
+refresh_policy: fixed_interval
+

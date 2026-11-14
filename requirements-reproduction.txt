@@ -1,0 +1,20 @@
+# Install a CUDA-compatible PyTorch separately. Observed torch build is in configs/reproduction.
+transformers==4.57.3
+peft==0.18.0
+accelerate==1.12.0
+datasets==4.4.1
+numpy==1.26.4
+scipy==1.15.3
+pandas==2.3.3
+PyYAML==6.0.3
+safetensors==0.7.0
+sentencepiece==0.2.1
+biopython==1.87
+scikit-learn==1.7.2
+moocore==0.3.1
+pytest==9.1.1
+huggingface-hub==0.36.2
+protobuf==7.36.2
+einops==0.8.2
+matplotlib==3.10.9
+-e .

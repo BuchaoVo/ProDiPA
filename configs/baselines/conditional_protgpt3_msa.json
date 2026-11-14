@@ -1,0 +1,26 @@
+{
+  "baseline": "protgpt3_msa_tpr",
+  "display_name": "ProtGPT3-MSA",
+  "paradigm": "conditional",
+  "condition": {
+    "family_id": "G3DSA:1.25.40.10",
+    "family_name": "Tetratricopeptide-like helical domain superfamily"
+  },
+  "method": {
+    "mechanism": "unaligned 15-homolog context prompting without task-specific fine-tuning",
+    "model_id": "protgpt3/ProtGPT3-MSA",
+    "model_revision": "fa69ff482788c79dd44079151346ab544c3aa456",
+    "context_depth": 15
+  },
+  "resources": {
+    "model": {"kind": "directory", "required": true, "path": "__PRODIPA_MODELS__/ProtGPT3-MSA"},
+    "model_ready_marker": {"kind": "file", "required": true, "path": "__PRODIPA_MODELS__/ProtGPT3-MSA/.complete"},
+    "context_manifest": {"kind": "file", "required": true, "path": "data/evaluation/conditional/requested_baselines/protgpt3_msa_contexts.jsonl"},
+    "generation_entrypoint": {"kind": "file", "required": true, "path": "src/prodipa/baselines/run_protgpt3_msa_tpr.py"}
+  },
+  "protocol": {
+    "requests": 512, "seed": 42, "temperature": 0.7, "top_p": 0.9, "top_k": 200,
+    "max_new_tokens": 512,
+    "output": "outputs/evaluation/conditional/baseline_generation/protgpt3_msa_tpr.jsonl"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "family": "G3DSA:1.25.40.10",
+  "prompt": "Superfamily=<Tetratricopeptide-like helical domain superfamily>",
+  "datasets": {
+    "test_plddt": {
+      "size_exact": true,
+      "unique_sequences": true,
+      "unique_homology_groups": true,
+      "thresholds": true,
+      "family": true,
+      "alphabet_and_length": true,
+      "frozen_split": true
+    },
+    "test_sol": {
+      "size_exact": true,
+      "unique_sequences": true,
+      "unique_homology_groups": true,
+      "thresholds": true,
+      "family": true,
+      "alphabet_and_length": true,
+      "frozen_split": true
+    },
+    "test_thermo": {
+      "size_exact": true,
+      "unique_sequences": true,
+      "unique_homology_groups": true,
+      "thresholds": true,
+      "family": true,
+      "alphabet_and_length": true,
+      "frozen_split": true
+    },
+    "train_plddt": {
+      "size_exact": true,
+      "unique_sequences": true,
+      "unique_homology_groups": true,
+      "thresholds": true,
+      "family": true,
+      "alphabet_and_length": true,
+      "frozen_split": true
+    },
+    "train_sol": {
+      "size_exact": true,
+      "unique_sequences": true,
+      "unique_homology_groups": true,
+      "thresholds": true,
+      "family": true,
+      "alphabet_and_length": true,
+      "frozen_split": true
+    },
+    "train_thermo": {
+      "size_exact": true,
+      "unique_sequences": true,
+      "unique_homology_groups": true,
+      "thresholds": true,
+      "family": true,
+      "alphabet_and_length": true,
+      "frozen_split": true
+    }
+  },
+  "cross_attribute_train_test_homology_overlap": 0,
+  "cross_attribute_train_test_sequence_overlap": 0,
+  "failures": [],
+  "selection_seed": 42,
+  "thresholds": {
+    "plddt": 85.0,
+    "sol": 0.7,
+    "thermo": 0.6
+  },
+  "candidate_pool_sha256": "b312b4e1e8d8a371807cda86db5198bb3c8942abcb3b2e8054de9d0f465c8ee4",
+  "base_length_reference": {
+    "path": "/mnt/data/users/zbc/opd/ProDiPA/outputs/evaluation/generation/conditional/base.tsv",
+    "sha256": "518f7c261a2ffec72836c5b2c3f5ffa6a8e4acc25bf7ccd68195a1629e622318",
+    "n": 512,
+    "counts": [
+      7,
+      406,
+      99,
+      0
+    ],
+    "proportions": [
+      0.013671875,
+      0.79296875,
+      0.193359375,
+      0.0
+    ]
+  },
+  "published": true
+}

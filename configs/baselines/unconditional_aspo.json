@@ -1,0 +1,46 @@
+{
+  "baseline": "aspo_esm2_650m",
+  "generation_config_id": "aspo_esm2_650m_fold_sol_thermo_combined",
+  "requests": 512,
+  "seed": 42,
+  "mask_ratio": 0.1,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "steering_weights": {
+    "fold": 0.5,
+    "sol": 0.5,
+    "thermo": 1.0
+  },
+  "reference_manifest": "data/evaluation/unconditional/masked_infilling_reference_sequences.tsv",
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "path": "third_party/Steering-PLMs",
+      "commit": "f7da9960be1222957a18eeb1174126f3d6ed4940"
+    },
+    "esm2_checkpoint": {
+      "kind": "file",
+      "path": "$ESM2_650M_CHECKPOINT"
+    },
+    "fold_steering_vectors": {
+      "kind": "file",
+      "path": "$ASPO_FOLD_STEERING_VECTORS"
+    },
+    "sol_steering_vectors": {
+      "kind": "file",
+      "path": "$ASPO_SOL_STEERING_VECTORS"
+    },
+    "thermo_steering_vectors": {
+      "kind": "file",
+      "path": "$ASPO_THERMO_STEERING_VECTORS"
+    },
+    "reference_manifest": {
+      "kind": "file",
+      "path": "data/evaluation/unconditional/masked_infilling_reference_sequences.tsv"
+    },
+    "python": {
+      "kind": "executable",
+      "path": "$ASPO_PYTHON"
+    }
+  }
+}

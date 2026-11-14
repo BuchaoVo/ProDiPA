@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "evaluation_name": "unconditional",
+  "requests_per_model": 512,
+  "generation_protocol": {
+    "scope": "Reference autoregressive protocol; method-native non-autoregressive baselines may use their official decoding but must record every parameter per request",
+    "method_native_decode_allowed": true,
+    "seed": 42,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 200,
+    "repetition_penalty": 1.2,
+    "max_new_tokens": 512,
+    "valid_length_aa_min": 50,
+    "valid_length_aa_max": 512
+  },
+  "references": {
+    "ppl_model": "__PRODIPA_MODELS__/ProtGPT2",
+    "novelty_u_label": "UniProtKB_2026_03",
+    "novelty_u_database": "__PRODIPA_DATABASES__/uniprotkb/2026_03/mmseqs/uniprotkb_2026_03",
+    "novelty_u_ready_marker": "__PRODIPA_DATABASES__/uniprotkb/2026_03/READY",
+    "novelty_t_fasta": "outputs/evaluation/references/unconditional_train_union.fasta",
+    "novelty_t_definition": "Union of Fold, Sol and Thermo 300-sequence unconditional teacher training sets; identical reference for every compared method"
+  },
+  "scorers": {
+    "runtime": {
+      "torch": "2.12.1+cu130",
+      "transformers": "4.57.3",
+      "peft": "0.18.0"
+    },
+    "ppl": {
+      "implementation": "experiments/prodipa/conditional_evaluation/score_protgpt2_ppl.py",
+      "model": "__PRODIPA_MODELS__/ProtGPT2"
+    },
+    "structure": {
+      "implementation": "scripts/run_esmfold_properties.py",
+      "model": "__PRODIPA_MODELS__/esmfold_v1_hf",
+      "chunk_size": 32,
+      "num_recycles": 4
+    },
+    "sol": {
+      "implementation": "scripts/run_protein_sol.py",
+      "software": "tools/protein_sol/protein-sol-sequence-prediction-software"
+    },
+    "thermo": {
+      "implementation": "scripts/run_temBERTure_cls.py",
+      "repository": "tools/TemBERTure",
+      "repository_commit": "3c17a7a2d2a8365b187f5dec4eb1ed5db6d37f41",
+      "base_model": "Rostlab/prot_bert_bfd",
+      "base_revision": "6c5c8a55a52ff08a664dfd584aa1773f125a0487"
+    },
+    "novelty": {
+      "implementation": "experiments/prodipa/conditional_evaluation/score_mmseqs_novelty.py",
+      "mmseqs_commit": "8cc5ce367b5638c4306c2d7cfc652dd099a4643f"
+    }
+  },
+  "main_table_fields": [
+    "Model",
+    "PPL",
+    "Novelty-U",
+    "Novelty-T",
+    "pLDDT",
+    "%>70",
+    "pAE",
+    "%<10",
+    "Sol",
+    "Thermo",
+    "HV"
+  ],
+  "hypervolume": {
+    "objectives": [
+      "-log(1+PPL)",
+      "Novelty-U",
+      "pLDDT",
+      "Sol",
+      "Thermo"
+    ],
+    "normalization": "Frozen published Unconditional min-max bounds (pre-Sol-V3 scale)",
+    "frozen_manifest": "configs/evaluation/unconditional_hv_scale_frozen_pre_sol_v3.json",
+    "reference_point": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "excluded": [
+      "Novelty-T",
+      "pAE",
+      "%>70",
+      "%<10"
+    ]
+  },
+  "supplementary_thresholds": {
+    "fold_plddt_min": 85.0,
+    "sol_min": 0.7,
+    "thermo_min": 0.6
+  },
+  "resources": {
+    "esmfold_shards": 16,
+    "esmfold_chunk_size": 32,
+    "esmfold_num_recycles": 4,
+    "gpu_min_total_mib": 70000,
+    "gpu_min_free_mib": 28000,
+    "gpu_light_min_free_mib": 6000,
+    "gpu_max_util_pct": 100,
+    "gpu_stable_polls": 1,
+    "gpu_poll_seconds": 60,
+    "mmseqs_threads": 32,
+    "mmseqs_split_memory_limit": "300G"
+  },
+  "score_groups": [
+    {
+      "name": "protgpt2_base_and_prefix_teachers",
+      "models": [
+        "base",
+        "fold_teacher",
+        "sol_teacher",
+        "thermo_teacher"
+      ],
+      "evaluation_root": "outputs/evaluation/unconditional/methods/protgpt2_base_and_prefix_teachers"
+    },
+    {
+      "name": "progen2_baseline",
+      "models": [
+        "progen2_base"
+      ],
+      "evaluation_root": "outputs/evaluation/unconditional/methods/progen2_base"
+    },
+    {
+      "name": "dplm_baseline",
+      "models": [
+        "dplm_650m"
+      ],
+      "evaluation_root": "outputs/evaluation/unconditional/methods/dplm_650m"
+    },
+    {
+      "name": "method_protgpt2_multiteacher_student",
+      "models": [
+        "protgpt2_multiteacher_student"
+      ],
+      "evaluation_root": "outputs/evaluation/unconditional/methods/protgpt2_multiteacher_student"
+    },
+    {
+      "name": "method_progen3_762m",
+      "models": [
+        "progen3_762m"
+      ],
+      "evaluation_root": "outputs/evaluation/unconditional/methods/progen3_762m"
+    },
+    {
+      "name": "method_dplm2_650m",
+      "models": [
+        "dplm2_650m"
+      ],
+      "evaluation_root": "outputs/evaluation/unconditional/methods/dplm2_650m"
+    },
+    {
+      "name": "method_evodiff_oa_dm_640m",
+      "models": [
+        "evodiff_oa_dm_640m"
+      ],
+      "evaluation_root": "outputs/evaluation/unconditional/methods/evodiff_oa_dm_640m"
+    }
+  ],
+  "supplemental_main_table_models": [
+    "reference_theta0",
+    "online_opd_paired",
+    "prodipa_offline"
+  ],
+  "output_root": "outputs/evaluation/unconditional"
+}

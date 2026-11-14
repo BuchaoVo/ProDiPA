@@ -1,0 +1,25 @@
+split	attribute	length_bin	old_fixed_quota	base_expected_count	available_independent_groups	optimized_quota	reason
+train	plddt	50-149	15	4.101562	0	0	no_eligible_homology_groups;capacity_below_base_target
+train	plddt	150-249	90	237.890625	192	192	capacity_below_base_target
+train	plddt	250-349	135	58.007812	309	108	redistributed_to_reach_exact_dataset_size
+train	plddt	350-512	60	0.000000	328	0	
+test	plddt	50-149	5	1.367188	0	0	no_eligible_homology_groups;capacity_below_base_target
+test	plddt	150-249	30	79.296875	52	52	capacity_below_base_target
+test	plddt	250-349	45	19.335938	94	48	redistributed_to_reach_exact_dataset_size
+test	plddt	350-512	20	0.000000	123	0	
+train	sol	50-149	15	4.101562	160	27	redistributed_to_reach_exact_dataset_size
+train	sol	150-249	90	237.890625	189	189	capacity_below_base_target
+train	sol	250-349	135	58.007812	119	84	redistributed_to_reach_exact_dataset_size
+train	sol	350-512	60	0.000000	41	0	
+test	sol	50-149	5	1.367188	45	25	redistributed_to_reach_exact_dataset_size;adjusted_for_cross_bin_homology_matching
+test	sol	150-249	30	79.296875	51	51	capacity_below_base_target
+test	sol	250-349	45	19.335938	28	24	redistributed_to_reach_exact_dataset_size;adjusted_for_cross_bin_homology_matching
+test	sol	350-512	20	0.000000	14	0	
+train	thermo	50-149	15	4.101562	67	5	redistributed_to_reach_exact_dataset_size
+train	thermo	150-249	90	237.890625	162	162	capacity_below_base_target
+train	thermo	250-349	135	58.007812	219	133	redistributed_to_reach_exact_dataset_size
+train	thermo	350-512	60	0.000000	246	0	
+test	thermo	50-149	5	1.367188	18	2	redistributed_to_reach_exact_dataset_size
+test	thermo	150-249	30	79.296875	43	43	capacity_below_base_target
+test	thermo	250-349	45	19.335938	71	55	redistributed_to_reach_exact_dataset_size
+test	thermo	350-512	20	0.000000	85	0	

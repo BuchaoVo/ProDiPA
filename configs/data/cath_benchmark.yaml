@@ -1,0 +1,15 @@
+role: external_structure_benchmark
+release: CATH v4.3.0
+protocol: ESM-IF cath4.3_topologysplit_202206
+split_unit: PDB_chain
+benchmark_partition: test
+qc:
+  min_length: 50
+  max_length: 512
+  alphabet: ACDEFGHIKLMNPQRSTVWY
+  missing_backbone_coordinates: retain_and_report
+rules:
+  - The ESM-IF split is chain-level and topology-based; it is not a CATH-domain split.
+  - Associated CATH domains retain their own domain sequences and C.A.T.H labels.
+  - Test entries remain candidates until cross-source MMseqs2 and structural audits pass.
+  - If CATH is used to train teachers, the same route is CATH-only and not an external benchmark.

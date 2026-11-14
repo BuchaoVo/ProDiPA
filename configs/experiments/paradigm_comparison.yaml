@@ -1,0 +1,135 @@
+backbone: prollama
+base_model: __PRODIPA_MODELS__/ProLLaMA
+seed: 42
+prompt: "[Generate by superfamily] Superfamily=<Lysozyme-like domain superfamily>"
+
+data:
+  positive_sft: data/teachers/mixed_positive_sft.jsonl
+  direct_dpo: data/teachers/direct_dpo_train.jsonl
+  shared_validation: data/teachers/shared_validation.jsonl
+  fixed_rollouts: data/properties/fusion_generation/base.tsv
+  train_property_scores: data/properties/train_property_scores.tsv
+  split_metadata: data/processed/uniref_split/split_metadata.tsv
+
+student:
+  max_seq_length: 768
+  precision: bf16
+  load_in_kbits: 16
+  learning_rate: 2.0e-5
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.05
+  weight_decay: 0.0
+  per_device_train_batch_size: 1
+  gradient_checkpointing: true
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.1
+  lora_target_modules: q_proj,v_proj,k_proj,o_proj,gate_proj,down_proj,up_proj
+
+methods:
+  positive_sft:
+    normal: {epochs: 1, gradient_accumulation_steps: 8}
+    matched: {max_steps: 128, gradient_accumulation_steps: 1}
+  direct_dpo:
+    beta: 0.1
+    normal: {epochs: 1, gradient_accumulation_steps: 8}
+    matched: {max_steps: 128, gradient_accumulation_steps: 1}
+  full_multiteacher:
+    fusion: equal_weight_poe
+    loss: generalized_jsd
+    beta: 0.5
+    fixed_rollout_steps: 128
+  static_cacheopd:
+    fusion: equal_weight_poe
+    loss: generalized_jsd
+    beta: 0.5
+    fixed_rollout_steps: 128
+    cache_dtype: float16
+
+generation:
+  conditions: 128
+  seeds: [42, 43, 44, 45]
+  sequences_per_method: 512
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 200
+  repetition_penalty: 1.2
+  max_new_tokens: 512
+
+evaluation:
+  thresholds: {fold_plddt_100: 73.861558725, solubility_scaled_01: 0.67025, thermophilicity_score_01: 0.30263095325}
+  threshold_source: shared_validation_1000_property_specific_75th_percentile
+  length_bins: {short_max: 131, medium_max: 237}
+  length_adjustment: validation_strata_common_support_only
+  hypervolume_normalization: {fold_plddt_100: 100.0, solubility_scaled_01: 1.0, thermophilicity_score_01: 1.0}
+  hypervolume_reference: [0.0, 0.0, 0.0]
+  bootstrap_unit: condition_id
+  bootstrap_repeats: 10000
+  hypervolume_bootstrap_repeats: 1000
+  novelty:
+    reference: data/processed/uniref_split/uniref_train.fasta
+    tool: tools/mmseqs/bin/mmseqs
+    min_identity: 0.30
+    min_query_coverage: 0.80
+    min_target_coverage: 0.80
+    sensitivity: 7.5
+    evalue: 0.001
+    nearest_significant_hit_min_identity: 0.0
+    interpretation: operational_no_hit_only_not_remote_homology_certification
+
+single_property_factorial:
+  property: thermo
+  rationale: only_existing_teacher_with_resolved_free_generation_target_gain
+  labeled_train_sequences: 25000
+  pair_data:
+    train: data/teachers/thermo_preference_train.jsonl
+    validation: data/teachers/thermo_preference_validation.jsonl
+    pairs: data/teachers/thermo_preference_pairs.tsv
+    minimum_margin: 0.20
+    max_pairs: 12000
+  candidate_rollouts: data/properties/teacher_generation/prollama_base_thermo.tsv
+  sft_teacher: outputs/conditional/prollama/thermo/final_adapter
+  preference_teacher:
+    output: outputs/single_property_factorial/thermo/preference_teacher
+    selected_checkpoint: outputs/single_property_factorial/thermo/preference_teacher/checkpoint-3000
+    selection_evidence: reports/preference_teacher_selection.tsv
+    epochs: 4
+    steps_per_epoch: 1500
+    max_steps: 6000
+    eval_steps: 375
+    save_steps: 1500
+    dpo_beta: 0.1
+  student:
+    steps: 128
+    candidate_trajectories: 256
+    sequence_objective: direct_dpo
+    token_objective: full_vocabulary_jsd
+    jsd_beta: 0.5
+
+dense_supervision_mechanism:
+  property: thermo
+  teacher: outputs/conditional/prollama/thermo/final_adapter
+  fixed_rollouts: data/properties/teacher_generation/prollama_base_thermo.tsv
+  student_steps: 128
+  hard_token_objective: teacher_full_vocab_argmax_cross_entropy
+  soft_token_objective: full_vocabulary_jsd
+  preference_teacher: outputs/single_property_factorial/thermo/preference_teacher/checkpoint-3000
+  preference_teacher_temperatures: [0.5, 0.7, 1.0]
+  generation:
+    hard_token_sequences: 512
+    preference_temperature_sequences: 128
+
+external_baselines:
+  shared_train_sequences: 15000
+  direct_dpo: outputs/single_property_factorial/thermo/direct_property_dpo
+  conflict_aware_dpo:
+    pairs: data/teachers/direct_dpo_pairs.tsv
+    train: data/teachers/conflict_aware_dpo_train.jsonl
+    margin_definition: "0.1 * clip(max_standardized_gain - max(0, -min_standardized_gain), 0, 1)"
+    student_steps: 128
+  nsga_ii:
+    status: pending_oracle_budget
+  st_parm_style:
+    status: compatibility_review
+  mospro_style:
+    status: compatibility_review

@@ -1,0 +1,24 @@
+{
+  "baseline": "ctrlprot_tpr",
+  "display_name": "CtrlProt-style",
+  "paradigm": "conditional",
+  "condition": {
+    "family_id": "G3DSA:1.25.40.10",
+    "family_name": "Tetratricopeptide-like helical domain superfamily"
+  },
+  "method": {
+    "mechanism": "TPR prefix initialization followed by multi-listwise preference optimization",
+    "adaptation_required": true,
+    "property_thresholds": {"fold": 85.0, "sol": 0.7, "thermo": 0.6}
+  },
+  "resources": {
+    "official_repo": {"kind": "git_repo", "required": true, "commit_env": "CTRLPROT_REPO_COMMIT", "path": "$CTRLPROT_REPO"},
+    "protgpt2_base": {"kind": "directory", "required": true, "path": "../../models/ProtGPT2"},
+    "fold_train": {"kind": "file", "required": true, "path": "data/conditional/fold/train_plddt_300.json"},
+    "sol_train": {"kind": "file", "required": true, "path": "data/conditional/sol/train_sol_300.json"},
+    "thermo_train": {"kind": "file", "required": true, "path": "data/conditional/thermo/train_thermo_300.json"},
+    "trained_checkpoint": {"kind": "directory", "required": true, "path": "$CTRLPROT_TPR_CHECKPOINT"},
+    "generation_entrypoint": {"kind": "file", "required": true, "path": "$CTRLPROT_TPR_ENTRYPOINT"}
+  },
+  "protocol": {"requests": 512, "seed": 42, "output": "outputs/evaluation/conditional/baseline_generation/ctrlprot_tpr.jsonl"}
+}

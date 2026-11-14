@@ -1,0 +1,5 @@
+condition_label	family_id	interpro_name	entry_type	mapping_note
+Immunoglobulin-like	IPR013151	Immunoglobulin-like beta-sandwich domain	domain	Conservative exact structural-domain match; not a same-level family label.
+Lysozyme-like	IPR023346	Lysozyme-like domain superfamily	homologous_superfamily	Exact match to the legacy condition wording.
+Rossmann-like	IPR014729	Rossmann-like alpha/beta/alpha sandwich fold	homologous_superfamily	Exact broad fold/superfamily match.
+TIM barrel	IPR017946	PLC-like phosphodiesterase, TIM beta/alpha-barrel domain superfamily	homologous_superfamily	Conservative match to the legacy TIM beta/alpha-barrel wording; narrower than generic TIM barrels.

@@ -1,0 +1,41 @@
+{
+  "baseline": "pinal_1.2b",
+  "generation_config_id": "pinal_t2struc_1.2b_multi_property_prompt",
+  "requests": 512,
+  "seed": 42,
+  "prompt": "Design novel protein sequences with high foldability, high solubility, and high thermostability.",
+  "temperature": 0.7,
+  "saprot_sample_type": "multinomial",
+  "multinomial_temperature": 0.3,
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "path": "$PINAL_REPO",
+      "commit_env": "PINAL_REPO_COMMIT"
+    },
+    "weights": {
+      "kind": "directory",
+      "path": "$PINAL_WEIGHTS"
+    },
+    "t2struct_config": {
+      "kind": "file",
+      "path": "$PINAL_WEIGHTS/T2struct-1.2B/config.yaml"
+    },
+    "t2struct_weights": {
+      "kind": "file",
+      "path": "$PINAL_WEIGHTS/T2struct-1.2B/pytorch_model.bin"
+    },
+    "saprot_t_config": {
+      "kind": "file",
+      "path": "$PINAL_WEIGHTS/SaProt-T/config.yaml"
+    },
+    "saprot_t_weights": {
+      "kind": "file",
+      "path": "$PINAL_WEIGHTS/SaProt-T/pytorch_model.bin"
+    },
+    "python": {
+      "kind": "executable",
+      "path": "$PINAL_PYTHON"
+    }
+  }
+}

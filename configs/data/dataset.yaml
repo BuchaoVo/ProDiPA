@@ -1,0 +1,19 @@
+dataset_id: prodipa_uniref50_2026_03
+sources:
+  uniref50_release: "2026_03"
+  uniref50_url: https://rest.uniprot.org/idmapping/run
+  uniprot_release: "2026_03"
+  interpro_release: "110.0"
+  cath_release: "4.3.0 / ESM-IF cath4.3_topologysplit_202206"
+  pdb_release: null
+qc:
+  alphabet: ACDEFGHIKLMNPQRSTVWY
+  min_length: 50
+  max_length: 512
+  ambiguous_residue_policy: quarantine
+  duplicate_key: normalized_sequence
+  raw_files_read_only: true
+required_provenance:
+  - accession
+  - source_release
+  - uniprot_id

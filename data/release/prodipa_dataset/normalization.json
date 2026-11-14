@@ -1,0 +1,33 @@
+{
+  "evaluation_hv": {
+    "reference": [
+      0,
+      0,
+      0
+    ],
+    "transform": "training min-max, clipped to [0,1]"
+  },
+  "fit_split": "train",
+  "n": 25000,
+  "training": "z-score",
+  "transforms": {
+    "fold": {
+      "max": 92.6441252,
+      "mean": 59.54054621506,
+      "min": 22.4101782,
+      "std": 17.370475145118963
+    },
+    "sol": {
+      "max": 1.0,
+      "mean": 0.5529612,
+      "min": 0.0,
+      "std": 0.16954815839330134
+    },
+    "thermo": {
+      "max": 0.999911427,
+      "mean": 0.21121015776087745,
+      "min": 2.16933836e-06,
+      "std": 0.29071249094801926
+    }
+  }
+}

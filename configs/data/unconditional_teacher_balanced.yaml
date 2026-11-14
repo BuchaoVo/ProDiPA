@@ -1,0 +1,74 @@
+protocol_id: base_length_matched_3to1_complexity_audited_v1
+status: published_canonical
+canonical_root: data/unconditional
+canonical_files:
+  fold_train: data/unconditional/fold/train_plddt_300.csv
+  fold_validation: data/unconditional/fold/test_plddt_100.csv
+  sol_train: data/unconditional/sol/train_sol_300.csv
+  sol_validation: data/unconditional/sol/test_sol_100.csv
+  thermo_train: data/unconditional/thermo/train_thermo_300.csv
+  thermo_validation: data/unconditional/thermo/test_thermo_100.csv
+source_release: releases/zenodo/ProDiPA_frozen_dataset_2026-11-02.tar.gz
+source_partitions:
+  train: train_25000_complete.tsv.gz
+  validation: validation_1000_complete.tsv.gz
+validation_role: positive-only checkpoint selection; not a blind test
+sizes:
+  train_per_attribute: 300
+  validation_per_attribute: 100
+  exact_train_validation_ratio_per_length_bin: 3
+length_bins_aa:
+  - [50, 149]
+  - [150, 249]
+  - [250, 349]
+  - [350, 512]
+base_length_reference:
+  path: outputs/evaluation/unconditional/methods/protgpt2_base_and_prefix_teachers/generation/unconditional/base.tsv
+  inclusion: valid_complete=true and 50<=length_aa<=512
+  n: 335
+  counts: [93, 89, 79, 74]
+thresholds:
+  fold_plddt_100: 85.0
+  sol: 0.70
+  thermo: 0.60
+length_quotas:
+  fold:
+    train: [0, 159, 72, 69]
+    validation: [0, 53, 24, 23]
+  sol:
+    train: [87, 144, 54, 15]
+    validation: [29, 48, 18, 5]
+  thermo:
+    train: [90, 105, 57, 48]
+    validation: [30, 35, 19, 16]
+complexity_gate:
+  min_global_entropy_bits: 2.5
+  max_single_residue_fraction: 0.35
+  max_homopolymer_run: 12
+  max_low_complexity_window_fraction: 0.25
+  min_unique_residues: 8
+  window_aa: 32
+  window_entropy_bits: 2.5
+  window_max_single_residue_fraction: 0.5
+sol_structure_quality:
+  role: within-score-stratum selection and matched train/validation composition
+  qualified_if:
+    fold_plddt_100_min: 50.0
+    fold_mean_pae_max: 25.0
+  train_qualified: 216
+  validation_qualified: 72
+teacher_input_protocol:
+  name: protgpt2_fasta60_v1
+  exact_text: "EOS + newline + sequence wrapped every 60 aa + newline + EOS"
+  truncation: forbidden
+generation_protocol:
+  sequence_format: legacy
+  whitespace_sampling: allowed
+  preserve_raw_token_ids: true
+  export_sequence: remove whitespace only after generation
+  max_new_tokens: 512
+  generation_max_aa: 512
+  aa_cap_role: safety censoring only
+  forced_terminal_is_valid_complete: false
+  forced_terminal_loss: masked
+  natural_eos_loss: supervised

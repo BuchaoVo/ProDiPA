@@ -1,0 +1,43 @@
+{
+  "baseline": "dplm2_650m",
+  "display_name": "DPLM-2-650M",
+  "generation_config_id": "dplm2_650m_co_generation_v1",
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "8a2e15e53416b4536f03f79ad1f6f6a9cbd5e19d",
+      "path": "third_party/dplm"
+    },
+    "checkpoint": {
+      "kind": "directory",
+      "required": true,
+      "path": "../../models/external_weights/DPLM2-650M"
+    },
+    "checkpoint_weights": {
+      "kind": "file",
+      "required": true,
+      "path": "../../models/external_weights/DPLM2-650M/pytorch_model.bin",
+      "expected_bytes": 0,
+      "expected_sha256": "8d6e08cc05e4858064a714013c74cc88c9caa2cc8b12c34605a3c24bcd877cfb"
+    },
+    "length_manifest": {
+      "kind": "file",
+      "required": true,
+      "path": "outputs/unconditional/external_baselines/dplm_650m/length_manifest.jsonl"
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "batch_size": 4,
+    "max_iter": 500,
+    "temperature": 1.0,
+    "sampling_strategy": "annealing@2.0:0.1",
+    "unmasking_strategy": "stochastic1.0",
+    "target_length_min": 50,
+    "target_length_max": 512,
+    "output": "outputs/unconditional/external_baselines/dplm2_650m/generations.jsonl",
+    "structure_output": "outputs/unconditional/external_baselines/dplm2_650m/structure_tokens.jsonl"
+  }
+}

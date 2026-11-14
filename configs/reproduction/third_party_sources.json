@@ -1,0 +1,38 @@
+[
+  {
+    "path": "third_party/ProteinOPD",
+    "source": "git@github.com:THU-AI4S/ProteinOPD.git",
+    "commit": "88fe97cb3d09cd811788cd1d7e94704989644eb4",
+    "local_modifications": true
+  },
+  {
+    "path": "third_party/ProTrek",
+    "source": "https://github.com/westlake-repl/ProTrek.git",
+    "commit": "48715468b8daa08236d05ff3310cd61db1896e94",
+    "local_modifications": true
+  },
+  {
+    "path": "third_party/dplm",
+    "source": "https://github.com/bytedance/dplm.git",
+    "commit": "8a2e15e53416b4536f03f79ad1f6f6a9cbd5e19d",
+    "local_modifications": false
+  },
+  {
+    "path": "third_party/progen",
+    "source": "https://github.com/salesforce/progen.git",
+    "commit": "c27a419c234a0997923761e1fe7daffcebf0eaf5",
+    "local_modifications": false
+  },
+  {
+    "path": "third_party/Steering-PLMs",
+    "source": "https://github.com/Long-Kai/Steering-PLMs.git",
+    "commit": "f7da9960be1222957a18eeb1174126f3d6ed4940",
+    "local_modifications": true
+  },
+  {
+    "path": "tools/TemBERTure",
+    "source": "https://github.com/ibmm-unibe-ch/TemBERTure.git",
+    "commit": "3c17a7a2d2a8365b187f5dec4eb1ed5db6d37f41",
+    "local_modifications": true
+  }
+]

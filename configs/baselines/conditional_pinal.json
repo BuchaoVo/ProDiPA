@@ -1,0 +1,51 @@
+{
+  "baseline": "pinal_1.2b_tpr_text",
+  "display_name": "Pinal-1.2B + SaProt-T (TPR text condition)",
+  "paradigm": "conditional",
+  "generation_config_id": "pinal_1.2b_saprot_t_tpr_text_v1",
+  "condition": {
+    "type": "natural_language_description",
+    "text": "Design a protein containing tetratricopeptide repeat (TPR) domains forming a predominantly alpha-helical repeat scaffold.",
+    "family_id": "G3DSA:1.25.40.10",
+    "family_name": "Tetratricopeptide-like helical domain superfamily"
+  },
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "37c171daf8b3144f02ff47f20343a4d2f86f6da2",
+      "path": "../../models/external_repos/Denovo-Pinal"
+    },
+    "weights": {
+      "kind": "directory",
+      "required": true,
+      "path": "../../models/external_weights/Pinal"
+    },
+    "t2struct_weights": {
+      "kind": "file",
+      "required": true,
+      "hash": true,
+      "path": "../../models/external_weights/Pinal/T2struct-1.2B/pytorch_model.bin"
+    },
+    "saprot_t_weights": {
+      "kind": "file",
+      "required": true,
+      "hash": true,
+      "path": "../../models/external_weights/Pinal/SaProt-T/pytorch_model.bin"
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "batch_size": 8,
+    "temperature": 0.7,
+    "top_k": 40,
+    "top_p": 1.0,
+    "repetition_penalty": 1.0,
+    "minimum_length": 64,
+    "maximum_length": 512,
+    "saprot_sampling": "multinomial",
+    "saprot_multinomial_temperature": 0.3,
+    "output": "outputs/evaluation/conditional/baseline_generation/pinal_1.2b_tpr_text.jsonl"
+  }
+}

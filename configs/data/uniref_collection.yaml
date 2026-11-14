@@ -1,0 +1,29 @@
+dataset_id: uniref50_main_2026_03
+
+source:
+  release: "2026_03"
+  release_date: "2026-09-02"
+  url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref50/uniref50.fasta.gz
+  metalink_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/uniref/uniref50/RELEASE.metalink
+  expected_size_bytes: 8780552383
+  expected_cluster_count: 38840027
+  license: CC-BY-4.0
+
+qc:
+  min_length: 50
+  max_length: 512
+  alphabet: ACDEFGHIKLMNPQRSTVWY
+  truncate_long_sequences: false
+  low_complexity_action: report_only
+
+sampling:
+  method_for_future_rebuilds: seeded_reservoir
+  existing_main_artifact_method: deterministic_selection
+  seed: 42
+  target_unique_sequences: 60000
+  scope: all_qc_passing_uniref50_representatives
+
+role:
+  use: broad_natural_sequence_training_candidate_pool
+  condition_labels_required: false
+  cath_test_training_use: false

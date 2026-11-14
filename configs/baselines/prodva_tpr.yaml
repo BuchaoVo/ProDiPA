@@ -1,0 +1,37 @@
+{
+  "baseline": "prodva_tpr",
+  "generation_config_id": "prodva_molinst_swissprotclap_tpr_v1",
+  "model_id": "nwliu/ProDVa-Molinst-SwissProtCLAP",
+  "condition": "Tetratricopeptide-like helical domain superfamily",
+  "prompt": "Design novel protein sequences from the Tetratricopeptide-like helical domain superfamily with high foldability, high solubility, and high thermostability.",
+  "retrieval_index_version": null,
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "ff2d41c8be77a27c116c2b70fc1255441ede4107",
+      "one_of": ["third_party/ProDVa", "../../models/external_repos/ProDVa"]
+    },
+    "dvagen_executable": {"kind": "executable", "required": true, "path": "dvagen"},
+    "model_weights": {"kind": "directory", "required": true, "path": "$PRODVA_MODEL_WEIGHTS"},
+    "text_tokenizer": {"kind": "directory", "required": true, "path": "$PRODVA_TEXT_TOKENIZER"},
+    "language_model_tokenizer": {"kind": "directory", "required": true, "path": "$PRODVA_LM_TOKENIZER"},
+    "phrase_tokenizer": {"kind": "directory", "required": true, "path": "$PRODVA_PHRASE_TOKENIZER"},
+    "fragment_mapping": {"kind": "file", "required": true, "path": "$PRODVA_FRAGMENT_MAPPING"},
+    "embedding_model": {"kind": "directory", "required": true, "path": "$PRODVA_EMBEDDING_MODEL"},
+    "retriever_data": {"kind": "file", "required": true, "path": "$PRODVA_RETRIEVER_DATA"},
+    "vector_store": {"kind": "file", "required": true, "path": "$PRODVA_VECTOR_STORE"},
+    "protein_sequence_mapping": {"kind": "file", "required": true, "path": "$PRODVA_PROTEIN_SEQUENCE_MAPPING"}
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 950,
+    "max_new_tokens": 256,
+    "doc_top_k": 16,
+    "batch_size": 1,
+    "output_dir": "outputs/conditional/tpr_external_baselines/prodva"
+  }
+}

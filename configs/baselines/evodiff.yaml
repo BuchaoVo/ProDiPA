@@ -1,0 +1,40 @@
+{
+  "baseline": "evodiff_oa_dm_640m",
+  "display_name": "EvoDiff OA-DM-640M",
+  "generation_config_id": "evodiff_oa_dm_640m_frozen_lengths_v1",
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "33206e99446f799ec11cf6e57d66ffaec837be91",
+      "path": "../../models/external_repos/evodiff"
+    },
+    "sequence_model_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "af695772c4a1c056d930c95ec7e6428aa042f5cd",
+      "path": "../../models/external_repos/protein-sequence-models"
+    },
+    "checkpoint_weights": {
+      "kind": "file",
+      "required": true,
+      "path": "../../models/external_weights/EvoDiff/oaar-640M.tar",
+      "expected_bytes": 7716114912,
+      "expected_md5": "e6e0f2a05be4b284dd7879e30cc6c421"
+    },
+    "length_manifest": {
+      "kind": "file",
+      "required": true,
+      "path": "outputs/unconditional/external_baselines/dplm_650m/length_manifest.jsonl"
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "batch_size": 8,
+    "target_length_min": 50,
+    "target_length_max": 512,
+    "unmask_order": "uniform_random_per_batch",
+    "output": "outputs/unconditional/external_baselines/evodiff_oa_dm_640m/generations.jsonl"
+  }
+}

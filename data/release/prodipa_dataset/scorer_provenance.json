@@ -1,0 +1,32 @@
+{
+  "evidence_limit": "Recovered identical historical local source copies; no original 15K hash recorded.",
+  "existing_15000": "reused without re-scoring",
+  "files_sha256": {
+    "fasta_seq_reformat_export.pl": "ee671b4121e343e0dd660377a8204c2e5058fcf9185e8ea629b2c3c64562a8e9",
+    "multiple_prediction_wrapper_export.sh": "a7e7d0137508f34734584a6b37157e980bed769f400032f8ecb36949d17dc232",
+    "profiles_gather_export.pl": "ad1aadee73db9b828ed4e87b27bb75191cf48b4934cf8ab3855c80740b674eac",
+    "seq_compositions_perc_pipeline_export.pl": "8e8888220984b77c472333fa57750585d33e7aff93d44cb6b090fccd728d87cb",
+    "seq_props_ALL_export.pl": "f20eac44b526f9b694c6371b06a3a4a9c080d14da1241cb785d77230783efa15",
+    "seq_reference_data.txt": "6943cd600741d5d22b7518b8be40f2850bfa5586e96d637de3db688c7337d1f0",
+    "server_prediction_seq_export.pl": "80f8554e43d605c10a6feea983c222099869119b0a9d73411c5a1b2dd68c4b4d",
+    "ss_propensities.txt": "3c634b252ed83ffd363e6b0936e95813584facddb399f0fcc6769710755fa33f"
+  },
+  "historical_identical_copies": [
+    "work/property_annotation/biophysical_weighting_protein_sol",
+    "work/property_annotation/nsga_ii_protein_sol",
+    "work/property_annotation/paradigm_protein_sol",
+    "work/property_annotation/preference_teacher_protein_sol",
+    "work/property_annotation/protein_sol_conflict_dpo",
+    "work/property_annotation/protein_sol_pref_temp05",
+    "work/property_annotation/protein_sol_pref_temp10",
+    "work/property_annotation/sft_hard_token_protein_sol",
+    "work/property_annotation/single_property_factorial_protein_sol",
+    "work/property_annotation/teacher_generation_protein_sol"
+  ],
+  "name": "Protein-Sol",
+  "new_scoring_ids": 10000,
+  "normalization": "original reference-data fit; no refitting or clipping",
+  "output": "SEQUENCE PREDICTIONS CSV field 3 (zero-based): scaled-sol",
+  "source": "/mnt/data/users/zbc/opd/ProDiPA/tools/protein_sol/protein-sol-sequence-prediction-software",
+  "version": "October 2017 local sequence predictor"
+}

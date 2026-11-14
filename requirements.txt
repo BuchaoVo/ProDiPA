@@ -1,0 +1,2 @@
+# Compatibility bootstrap only. Reproducible development uses uv.lock.
+-e .[dev]

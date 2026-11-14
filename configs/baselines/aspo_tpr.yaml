@@ -1,0 +1,86 @@
+{
+  "baseline": "aspo_tpr_multi_attribute",
+  "generation_config_id": "aspo_tpr_multi_official_weights_v1",
+  "condition": "Tetratricopeptide-like helical domain superfamily",
+  "prompt": "[Generate by superfamily]Superfamily=<Tetratricopeptide-like helical domain superfamily>Seq=<",
+  "steering_weights": {"fold": 0.5, "sol": 0.5, "thermo": 1.0},
+  "negative_thresholds": {"fold": 0.70, "sol": 0.50, "thermo": 0.40},
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit": "f7da9960be1222957a18eeb1174126f3d6ed4940",
+      "one_of": ["third_party/Steering-PLMs", "../../models/external_repos/Steering-PLMs"]
+    },
+    "multi_vector_entrypoint": {
+      "kind": "file",
+      "required": true,
+      "path": "third_party/Steering-PLMs/steering_prollama_generation_prodipa_tpr.py"
+    },
+    "prollama_base": {
+      "kind": "directory",
+      "required": true,
+      "path": "../../models/ProLLaMA"
+    },
+    "positive_fold": {
+      "kind": "file",
+      "required": true,
+      "path": "data/conditional/fold/train_plddt_300.json"
+    },
+    "positive_sol": {
+      "kind": "file",
+      "required": true,
+      "path": "data/conditional/sol/train_sol_300.json"
+    },
+    "positive_thermo": {
+      "kind": "file",
+      "required": true,
+      "path": "data/conditional/thermo/train_thermo_300.json"
+    },
+    "test_fold": {
+      "kind": "file",
+      "required": true,
+      "path": "data/conditional/fold/test_plddt_100.json"
+    },
+    "test_sol": {
+      "kind": "file",
+      "required": true,
+      "path": "data/conditional/sol/test_sol_100.json"
+    },
+    "test_thermo": {
+      "kind": "file",
+      "required": true,
+      "path": "data/conditional/thermo/test_thermo_100.json"
+    },
+    "negative_fold": {
+      "kind": "file",
+      "required": true,
+      "path": "data/evaluation/conditional/requested_baselines/aspo_negative_pool/fold_low.json"
+    },
+    "negative_sol": {
+      "kind": "file",
+      "required": true,
+      "path": "data/evaluation/conditional/requested_baselines/aspo_negative_pool/sol_low.json"
+    },
+    "negative_thermo": {
+      "kind": "file",
+      "required": true,
+      "path": "data/evaluation/conditional/requested_baselines/aspo_negative_pool/thermo_low.json"
+    },
+    "homology_manifest": {
+      "kind": "file",
+      "required": true,
+      "path": "data/evaluation/conditional/requested_baselines/aspo_negative_pool/homology_manifest.tsv"
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 40,
+    "max_new_tokens": 512,
+    "alpha": 1.0,
+    "output": "outputs/conditional/tpr_external_baselines/aspo_multi/generations.jsonl"
+  }
+}

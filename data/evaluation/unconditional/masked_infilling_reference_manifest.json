@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETE",
+  "input": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/unconditional_train_short_unscored.tsv",
+  "input_sha256": "0e383aba3d1fad8449e633f4f4ad16dcbbe27f2d50deefb412d5ea20db13b16e",
+  "output": "/mnt/data/users/zbc/opd/ProDiPA/data/evaluation/unconditional/masked_infilling_reference_sequences.tsv",
+  "output_sha256": "d3ae02c0dc94e56e949477c069fa6db7ad1749479cfa6b600164146a092f93ed",
+  "seed": 42,
+  "requests": 512,
+  "eligible_independent_sequences": 9029,
+  "selection": "seeded shuffle after stable source order; one sequence per homology group"
+}

@@ -1,0 +1,38 @@
+{
+  "baseline": "dplm_650m",
+  "generation_config_id": "dplm_650m_official_v1",
+  "resources": {
+    "official_repo": {
+      "kind": "git_repo",
+      "required": true,
+      "commit_env": "DPLM_REPO_COMMIT",
+      "one_of": ["third_party/dplm", "../../models/external_repos/dplm"]
+    },
+    "checkpoint": {
+      "kind": "directory",
+      "required": true,
+      "one_of": ["$DPLM_650M_CHECKPOINT", "../../models/dplm_650m"]
+    },
+    "checkpoint_weights": {
+      "kind": "file",
+      "required": true,
+      "one_of": ["$DPLM_650M_CHECKPOINT/pytorch_model.bin", "../../models/dplm_650m/pytorch_model.bin"]
+    },
+    "length_manifest": {
+      "kind": "file",
+      "required": true,
+      "path": "outputs/unconditional/external_baselines/dplm_650m/length_manifest.jsonl"
+    }
+  },
+  "protocol": {
+    "requests": 512,
+    "seed": 42,
+    "sampling_strategy": "gumbel_argmax",
+    "max_iter": 500,
+    "temperature_cli_effective": false,
+    "target_length_min": 50,
+    "target_length_max": 512,
+    "batch_size": 8,
+    "output": "outputs/unconditional/external_baselines/dplm_650m/generations.jsonl"
+  }
+}

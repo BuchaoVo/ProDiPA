@@ -1,0 +1,59 @@
+{
+  "status": "COMPLETE",
+  "selection_seed": 42,
+  "family_id": "G3DSA:1.25.40.10",
+  "family_name": "Tetratricopeptide-like helical domain superfamily",
+  "candidate_source": "/mnt/data/users/zbc/opd/ProDiPA/data/rebuild/teacher_data_threshold_85_070_060/tpr_candidates_clustered.tsv",
+  "complete_scored_candidates": 12463,
+  "negative_pools": {
+    "fold": {
+      "threshold_max": 70.0,
+      "count": 300,
+      "unique_homology_groups": 300,
+      "length_bins": {
+        "150-249": 192,
+        "250-349": 108
+      },
+      "positive_length_bins": {
+        "150-249": 192,
+        "250-349": 108
+      }
+    },
+    "sol": {
+      "threshold_max": 0.5,
+      "count": 300,
+      "unique_homology_groups": 300,
+      "length_bins": {
+        "150-249": 189,
+        "250-349": 84,
+        "50-149": 27
+      },
+      "positive_length_bins": {
+        "150-249": 189,
+        "250-349": 84,
+        "50-149": 27
+      }
+    },
+    "thermo": {
+      "threshold_max": 0.4,
+      "count": 300,
+      "unique_homology_groups": 300,
+      "length_bins": {
+        "150-249": 162,
+        "250-349": 133,
+        "50-149": 5
+      },
+      "positive_length_bins": {
+        "150-249": 162,
+        "250-349": 133,
+        "50-149": 5
+      }
+    }
+  },
+  "protgpt3_msa": {
+    "requests": 512,
+    "context_depth": 15,
+    "eligible_independent_train_groups": 714,
+    "test_groups_excluded": 244
+  }
+}

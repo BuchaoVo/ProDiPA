@@ -1,0 +1,18 @@
+name: ProDiPA
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.20
+  - pyyaml=6.0.2
+  - pip
+  - pip:
+      - -e .[dev]
+      # Phase 3D teacher SFT stack verified on the local A800 host.
+      - numpy==1.26.4
+      - torch==2.12.1
+      - transformers==4.57.3
+      - peft==0.18.0
+      - datasets==4.4.1
+      - accelerate==1.12.0
+      - sentencepiece==0.2.1
+      - protobuf==7.36.2
